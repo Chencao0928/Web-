@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>类选择器</title>
+<link href="green.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+
+
+.one{
+color: gray;			    /* 红色 */
+}
+.two{
+font-size:20px;		/* 文字大小 */
+}
+p{
+   color:gray;
+}
+@import url("red.css");
+</style>
+
+</head>
+
+<body>
+
+<p>选择器之标记选择器1</p>
+<p class="one">应用第一种class选择器样式</p>
+<p class="two">应用第二种class选择器样式</p>
+<p class="one  two">同时应两种class选择器样式</p>
+<h3 class="two">h3同样适用</h3>
+
+</body>
+</html>
