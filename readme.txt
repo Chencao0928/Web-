@@ -4,5 +4,6 @@ DreamWeaver CC 2019版提取链接和提取码如下，此版本DW免安装解�
 链接：https://pan.baidu.com/s/1RIUcgwBnFPSiYjqzIBu3WA 
 提取码：6ht0 
 
-2020年9月15日：上传第三章的代码至chapter3/代码
-2020年9月16日：上传第二章的课件HTML与CSS.pptx至chapter2 ，上传64位/32位VSCode至根文件夹
+2020年9月11日：上传 动静态网页补充说明.docx至chapter1，详述了动态网页/静态网页/伪静态网页/动态HTML相关内容
+2020年9月15日：上传 第三章的代码至chapter3/代码
+2020年9月16日：上传 第二章的课件HTML与CSS.pptx至chapter2 ，上传 64位/32位VSCode至根文件夹
