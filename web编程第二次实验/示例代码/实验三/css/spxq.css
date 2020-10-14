@@ -1,0 +1,243 @@
+/* CSS Document */
+
+
+.conbox {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+}
+
+.c-top {
+	width: 1200px;
+	height: auto;
+	display: inline-block;
+}
+
+.c-top-l {
+	width: 500px;
+	height: auto;
+	float: left;
+	margin-left: 60px;
+}
+.c-top-l>img:nth-child(1){
+	margin-left: 40px;
+}
+.c-top-l>.xiaotu{
+	border: 1px solid #666666;
+	display: inline-block;
+}
+.c-top-r {
+	width: 500px;
+	height: auto;
+	float: left;
+	margin-left: 70px;
+	margin-top: 30px;
+}
+.c-top-r>h3{
+	width: 400px;
+	font-size: 24px;
+	line-height: 30px;
+	color:#FC4F52;
+	text-align: center;
+	font-weight: normal;
+}
+.c-top-r>h3>small{
+	text-align: center;
+	font-size: 18px;
+}
+.c-top-r>p{
+	color: #AD1D1D;
+	line-height:35px;
+	font-size: 18px;
+}
+.c-top-r>h4{
+	display: block;
+	width: 400px;
+	height: 40px;
+	background-color: #FBA5A7;
+	line-height: 40px;
+	font-size: 20px;
+	padding-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	color: #B93335;
+	font-weight: normal;
+}
+
+.xznf {
+	color: #AD1D1D;
+	width: 400px;
+	height: 50px;
+	margin-top: 10px;
+	display: block;
+}
+
+.xznf >li{
+	display: inline-block;
+	height: 30px;
+	width: 80px;
+	border: 1px solid #5F5F5F;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.xznfhover{
+	border: 2px solid #709BF0!important;
+}
+.goumai{
+	position: relative;
+}
+
+.goumai>input:nth-child(1){
+	width: 30px;
+	height: 30px;
+	font-size: 24px;
+	line-height: 10px;
+	border: 1px solid #EC7173;
+	background: none;
+	cursor: pointer;
+}
+
+.goumai>input:nth-child(2){
+	width: 80px;
+	height: 30px;
+	border: 1px solid #EC7173;
+	text-align: center;
+	margin-top: 5px;
+	position: absolute;
+	top: -7px;
+	left: 40px;
+}
+.goumai>input:nth-child(3){
+	width: 30px;
+	height: 30px;
+	font-size: 24px;
+	line-height: 10px;
+	border: 1px solid #EC7173;
+	background: none;
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+	left: 130px;
+}
+.goumai>input:nth-child(4){
+	width: 120px;
+	height: 30px;
+	outline: none;
+	border:none;
+	border-radius: 6px;
+	color: white;
+	font-size: 16px;
+	background-color: #FD6B3B;
+	position: absolute;
+	left: 170px;
+	top: 0px;
+}
+.goumai>input:nth-child(5){
+	width: 120px;
+	height: 30px;
+	outline: none;
+	border:none;
+	color: white;
+	font-size: 16px;
+	border-radius: 6px;
+	background-color: #FD6B3B;
+	position: absolute;
+	left: 300px;
+	top: 0px;
+}
+
+
+.shoucan{
+	font-size: 24px;
+	color:#d97386;
+	cursor: pointer;
+}
+.shoucan2{
+	font-size: 24px;
+	color: #d97386;
+	cursor: pointer;
+	display:none;
+}
+.scbox {
+	width: 80px;
+	float: left;
+	margin-top: 20px;
+	position: relative;
+}
+.scbox>p{
+	position: absolute;
+	top: 0px;
+	left: 30px;
+}
+.fxbox {
+	width: 80px;
+	float: left;
+	margin-top: 20px;
+	position: relative;
+}
+.fxbox>p{
+	position: absolute;
+	top: 0px;
+	left: 30px;
+}
+.c-bottom {
+	width: 1200px;
+	height: auto;
+	margin-top: 30px;
+}
+
+.c-b-nav {
+	width: 1200px;
+	height: 40px;
+	background-color: #930000;
+}
+.c-b-nav>li{
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	cursor: pointer;
+}
+.c-b-nav>li:active{
+	background-color: #6F0102;
+}
+.xqnr {
+	width: 1200px;
+	height: auto;
+}
+
+.xqwz {
+	width: 1000px;
+	height: auto;
+	display: block;
+	margin: auto;
+	color: #930000;
+	line-height: 30px;
+}
+
+.sppj {
+	width: 1200px;
+	height: 600px;
+	background-color:#F7F2F2;
+}
+.sppj>p{
+	text-align: center;
+	font-size: 18px;
+	line-height: 60px;
+}
+.sqhd {
+	width: 1200px;
+	height: 600px;
+	background-color:#F7F2F2;
+}
+.sqhd>p{
+	text-align: center;
+	font-size: 18px;
+	line-height: 60px;
+}

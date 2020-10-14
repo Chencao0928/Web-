@@ -1,0 +1,231 @@
+/* CSS Document */
+
+
+.banbox {
+	width: 100%;
+	height: 500px;
+	background-image: url(../images/chanpin/banner-bg.jpg);
+	background-repeat: no-repeat;
+	}
+
+.ban {
+	width: 1200px;
+	height: 500px;
+	margin: auto;
+}
+
+.ban>.b-list {
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+}
+.b-list>li{
+	width: 200px;
+	height: 200px;
+	border-radius: 20px;
+	background-color:rgba(255,255,255,0.7);
+	float: left;
+	margin-left: 17px;
+	margin-top: 30px;
+	position: relative;
+	overflow: hidden;
+}
+.b-list>li>a{
+	width: 200px;
+	height: 200px;
+	display: block;
+}
+.b-list>li>a>img{
+	height: 180px;
+	margin-left: 70PX;
+	margin-top:10PX;
+}
+.b-listjs{
+	width: 200px;
+	height: 200px;
+	border-radius: 20px;
+	background-color:rgba(0,0,0,0.6);
+	display: block;
+	position: absolute;
+	top:200px;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+.b-listjs>a{
+	display: block;
+}
+.b-listjs>a>p{
+	width: 30px;
+	height: auto;
+	font-size: 20px;
+	margin: auto;
+	color: white;
+	line-height: 30px;
+	margin-top: 25px;
+}
+.b-list>li:hover .b-listjs{
+	top:1px!important;
+}
+/*内容列表*/
+.conbox {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.c-nav {
+	margin-top: 30px;
+	width: 1200px;
+	height: 50px;
+}
+.c-nav>li{
+	width: 200px;
+	height: 50px;
+	float: left;
+	text-align: center;
+	margin-left: 31px;
+}
+.c-nav>li>.c-nav-hover{
+	display: none;
+	width: 200px;
+	height:auto;
+	border: 1px solid  #5E3A3B;
+	box-sizing: border-box;
+	background-color:#FFFFFF;
+	border-top: none;
+}
+.c-nav>li>.c-nav-hover>li{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	letter-spacing: 10px;
+	font-size: 18px;
+	border-bottom: 1px solid #5E3A3B;
+	
+}
+.c-nav-hover>li>a{
+	display: block;
+	cursor: pointer;
+	color: #d97386;
+}
+.c-nav-hover>li>a:hover{
+	background-color: #CF9D9E;
+	color:#ffffff;
+}
+.c-nav>li>a{
+	border: 1px solid #707070;
+	display: block;
+	color: #930000;
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 30px;
+	padding-left: 30px;
+	transition: all 1s;
+}
+.c-nav>li>a:hover{
+	background-color: #930000;
+	color: white;
+	border: 1px solid #930000;
+}
+.c-nav>li:hover .c-nav-hover{
+	display: block!important;
+}
+
+.cp-list {
+	width: 1200px;
+	height: auto;
+	margin-top: 30px;
+}
+.cp-list>li{
+	width: 250px;
+	height: 300px;
+	border: 1px solid #d97386;
+	margin-left: 35px;
+	margin-top: 20px;
+	float:left;
+	position: relative;
+	overflow: hidden;
+}
+.cp-list>li>h4{
+	display:block;
+	width: 250px;
+	text-align: center;
+	line-height: 35px;
+	border-bottom: 1px solid #d97386;
+	border-top: 1px solid #d97386;
+	position: absolute;
+	bottom: 34px;
+}
+.cp-list>li>h4>a{
+	color: #d97386;
+}
+.cp-list>li>h4>a:hover{text-decoration:underline;}
+
+.cp-list>li>.list-h{
+	width: 160px;
+	height: 230px;
+	position: absolute;
+	right: -160px;
+	bottom: 70px;
+	background-color:rgba(0,0,0,0.5);
+	transition: all .3s;
+	color: white;
+	text-align: center;
+}
+.list-h>p{
+	margin-top: 20px;
+}
+.cp-list>li>.shoucan{
+	font-size: 24px;
+	color:#d97386;
+	position: absolute;
+	bottom: 5px;
+	left:60px;
+	cursor: pointer;
+}
+.cp-list>li:hover .list-h{
+	right: 0px!important;
+}
+.hide{
+	display: none!important;
+}
+.show{
+	display: block!important;
+}
+.cp-list>li>.shoucan2{
+	font-size: 24px;
+	color: #d97386;
+	position: absolute;
+	bottom: 5px;
+	left:60px;
+	cursor: pointer;
+	display:none;
+}
+.jrgwc{
+	display:block;
+	width: 70px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	text-align: center;
+	color: #d97386;
+	position: absolute;
+	bottom: 5px;
+	right: 60px;
+	cursor: pointer;
+	border-radius: 5px;
+	border:1px solid #d97386;
+}
+.jrgwc:hover{
+	background-color:rgba(217,115,134,0.7);
+	color: white;
+}
+.jrgwcjs{
+	background-color: #d97386;
+	color: white;
+}

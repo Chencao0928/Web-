@@ -1,0 +1,98 @@
+/* CSS Document */
+
+
+.conbox {
+	width: 1200px;
+	height:auto;
+	margin: auto;
+}
+
+.jian1 {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+	position: relative;
+}
+.jian1>img{
+	float: left;
+	margin-left: 70px;
+	margin-right: 50px;
+	margin-bottom: 20px;
+}
+.jian1>p{
+	width: 1120px;
+	line-height: 28px;
+	text-indent: 2em;
+}
+.p4{
+	width: 1050px!important;
+	height: auto;
+	display:none;
+	margin-left: 70px;
+}
+.zhankai {
+	width: 550px;
+	height: 50px;
+	display:inline-block;
+	text-align: center;
+	line-height: 20px;
+	margin: auto;
+	color: #241EB0;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.shouqi {
+	width: 550px;
+	height: 50px;
+	display: none;
+	text-align: center;
+	line-height: 20px;
+	color: #241EB0;
+	white-space: nowrap;
+	cursor: pointer;
+	position: absolute;
+	top: 330px;
+	left: 330px;
+	
+}
+.list1{
+	width: 1200px;
+	height: auto;
+	margin-top: 30px;
+	position: relative;
+}
+.list1>.img1{
+	margin-left: 70px;
+	padding-right:40px;
+	border-right:2px solid #000000;
+}
+.list1>.font{
+	width: 700px;
+	height: auto;
+	position: absolute;
+	right:70px;
+	top: 0px;
+	line-height: 28px;
+}
+.list2{
+	width: 1200px;
+	height: auto;
+	display: block;
+	margin-top: 30px;
+	position: relative;
+}
+.list2 > .img2{
+	padding-left: 40px;
+	border-left:2px solid #000000;
+	margin-left: 780px;
+	
+}
+.list2 > .font2{
+	width: 700px;
+	height: auto;
+	line-height: 28px;
+	position: absolute;
+	top: 0px;
+	left: 60px;
+	text-align: right;
+}

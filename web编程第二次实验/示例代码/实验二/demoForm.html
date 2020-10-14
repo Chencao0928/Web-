@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>RegisterForm</title>
+</head>
+<body>
+    <div>
+        <form name="register_form" action="deal_register_info.php" method="POST" enctype="multipart/form-data" style="background-color: antiquewhite;">
+			<h3>新用户注册</h3>
+            <p>用户名：<input name="usr_name" type="text" /></p>
+            <p>密码：<input name="usr_pwd" type="password"/></p>
+            <p>性别：男<input name="usr_gender" type="radio" value="1"/> 女<input name="usr_gender" type="radio" value="2"></p>
+            <p>爱好：篮球<input name="usr_hobby[]" type="checkbox" value="0" checked="checked"/>
+            乒乓球<input name="usr_hobby[]" value="1" type="checkbox"/>
+            羽毛球<input name="usr_hobby[]" type="checkbox" value="2"/>
+            </p>
+            <p>所在地：<select name="usr_location"><!--通过size决定是否是下拉框-->
+                <option value="0">重庆</option>
+                <option value="1">上海</option>
+                <option value="2">北京</option>
+                <option value="3">天津</option>
+            </select></p>
+            <p>生日：<input name="usr_birth" type="date" value="2000-01-01"/></p>
+            <p>上传附件：<input name="upload_file"  type="file"/></p>
+            <p><textarea name="usr_sign" rows="4" cols="30" placeholder="备注..." wrap="virtual"></textarea></p>
+            <p><input name="sb_button" type="submit" value="注册"/>&nbsp;&nbsp;&nbsp;<input name="reset" type="reset" value="重置"/></p>
+        </form>
+    </div>
+
+</body>
+</html>

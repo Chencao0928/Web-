@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>木地酒庄实训项目</title>
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/header.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<link href="css/new.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/new.js"></script>
+</head>
+
+<body>
+<div class="box">
+	<!--头部区域-->
+	<div class="topbox">
+		<div class="top">
+			<a href="index.html"><img src="images/top-logo.png" class="top-logo"></a>
+
+			<ul>
+				<li><i class="fa fa-star" aria-hidden="true"></i><a href="">中文</a></li>
+				<li><i class="fa fa-star" aria-hidden="true"></i><a href="#">English</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!--导航区域-->
+	<!--注册区域-->
+	<div class="regbox">
+	<form action="regsiter.php" method="post" name="frm_register" target="_blank">
+		<p align="center">用户名：<input type="text" name="usr_name" align="left" size="22"/></p>
+		<p align="center">密码：<input type="password" name="usr_pwd" align="left" size="22"/></p>
+		<p align="center">性别： 男<input type="radio" name="usr_sex" align="left" value="1"/> 女<input type="radio" name="usr_sex" align="left" value="2"/></p>
+		<p align="center">出生年月:<input type="date" name="usr_birth"></p>
+		<p align="center">所在地：<select name="usr_location">
+			<option value="0">重庆</option>
+			<option value="1">北京</option>
+			<option value="2">上海</option>
+			<option value="3">天津</option>
+			</select></p>
+		<p align="center">爱好：<input type="checkbox" name="hobby[]" value="跳舞" align="left" />跳舞
+			<input type="checkbox" name="hobby[]" value="唱歌" align="left" />唱歌
+			<input type="checkbox" name="hobby[]" value="跑步" align="left" />跑步
+	  </p>
+		<p align="center">签名：<textarea rows="5" cols="40" name="usr_sign" wrap="virtual" placeholder="个性签名..."></textarea></p>
+		<p align="center"><input type="submit" name="btn_submit" value="注册" align="middle"/></p>
+	</form>
+	</div>
+	<!--焦点图区域-->
+	<div class="banbox">
+		<ul class="ban-img">
+			<li><img src="images/news/ban-3.jpg"></li>
+			<li><img src="images/news/ban-2.jpg"></li>
+			<li><img src="images/news/ban-1.jpg"></li>
+		</ul>
+		<!--小圆圈盒子-->
+		<div class="ban-yq">
+			<a href="#" class="ban-yqa"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+		</div>
+		<!--左右按钮-->
+			<i class="fa fa-chevron-left l-bnt" aria-hidden="true"></i>
+			<i class="fa fa-chevron-right r-bnt" aria-hidden="true"></i>
+	</div>
+	<!--筛选区域-->
+
+	
+	<!--新闻列表区域-->
+
+	<!--页脚区域-->
+	<div class="footbox">
+    	<div class="foot">
+			<div class="huiding"><a href="#">
+				<i class="fa fa-arrow-up" aria-hidden="true"></i>
+		   </a></div>
+			<ul>
+				<li><a href="lxwm.html">联系我们</a></li>
+				<li><a href="jianjie.html">公司简介</a></li>
+				<li><a href="new.html">公司新闻</a></li>
+				<select class="f-xl">
+					<option>友情链接</option>
+					<option>翁丰统</option>
+					<option>胡家俊</option>
+					<option>张铭聪</option>
+				</select>
+			</ul>
+
+			<p class="f-small">Copyright @ 2010-2016 木地酒庄有限公司 wengfengtong 更多模板：<a href="http://www.mycodes.net/" target="_blank"/>源码之家</p>
+			<p class="f-sj">劝君更尽一杯酒<br/><span>满韵香含唯此家</span></p>
+       		<img src="images/foot-logo.jpg" style="position:absolute;bottom:10px;right:30px; ">
+        </div>
+    </div>
+	
+</div>
+</body>
+</html>

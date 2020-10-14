@@ -1,0 +1,115 @@
+/* CSS Document */
+
+
+.conbox {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+}
+
+.lxfs {
+	width: 1200px;
+	height: auto;
+	white-space: nowrap;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.lxfs>li{
+	width: 300px;
+	height: 150px;
+	display: inline-block;
+}
+.lxfs>li>img{
+	margin-left: 85px;
+}
+.lxxq{
+	width: 450px;
+	height: 300px;
+	float: left;
+}
+.lxxq>li{
+	font-size: 18px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 70px;
+}
+.lxxq>li:nth-child(1){
+	font-size: 24px;
+	width: 200px;
+	height: 50px;
+	line-height: 40px;
+	text-indent: 2em;
+	background-image: url(../images/lxwm/biao.jpg);
+	background-repeat: no-repeat;
+	margin-left: 125px;
+	margin-top: 20px;
+}
+.lyb{
+	width: 1000px;
+	height: auto;
+	margin-left: 80px;
+	margin-top: 40px;
+}
+.lyb>p{
+	margin-top: 30px;
+	width: 1000px;
+	height: 80px;
+	text-align: center;
+	font-size: 24px;
+}
+.lyb>p>small{
+	font-size: 14px;
+	color: #666666;
+}
+.lxbd {
+	width: 1000px;
+	height: 60px;
+	margin-top: 20px;
+	margin-left: 50px;
+	white-space: nowrap;
+}
+.lxbd>li{
+	width: 300px;
+	display: inline-block;
+}
+.lxbd>li>input{
+	width: 200px;
+	background: none;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: 1px dashed #333333;
+	padding-left: 10px;
+	outline: none;
+	font-size: 16px;
+}
+.lxbd>li:nth-child(1) input{
+	width: 150px;
+}
+.liuyan{
+	width: 900px;
+	height: 300px;
+	margin-left: 50px;
+	font-size: 18px;
+	padding: 10px;
+}
+
+
+
+.tijiao {
+	width: 160px;
+	height: 50px;
+	text-align: center;
+	letter-spacing: 20px;
+	padding-left: 20px;
+	font-size: 22px;
+	background-color: #FF8324;
+	margin-left: 420px;
+	border-radius: 15px;
+	color: white;
+	margin-top: 30px;
+	margin-bottom: 20px;border: none;
+}
+.tijiao:active{
+	background-color: #93391B;
+}
