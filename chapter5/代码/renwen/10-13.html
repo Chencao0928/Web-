@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>衡阳师范学院人文社会科学系</title>
+
+
+<script src="jquery.min.js"></script>
+<script type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+$(function(){   
+    $.ajaxSetup({		//统一设置$.ajax()方法中的相同部分
+			type: "GET",
+	 		 url:"10-13.php"
+	  });
+ 	$.ajax({  		//加载头条新闻的函数
+            data:{Bigclass:escape("头条"),n:1},  //发送的参数n为1表示是头条新闻
+            beforeSend:function(){$(".top2").html("正在加载中…");},  
+            success:function(data){
+			str=data.split("|");
+			$(".top").html(str[1]);
+			$(".top2").html('<a href="ONEWS.php?id='+str[0]+'">'+str[2]+'</a> ['+str[3]+']' );  
+		    }               }); 	 
+	 $.ajax({    		//加载近期工作栏目中的新闻
+		//发送栏目名Bigclass和显示新闻的条数n参数给10-13.asp，下同
+            data:{Bigclass:escape("近期工作"),n:6},   
+            beforeSend:function(){$("#jqgz").html("正在加载中…");}, 
+            success:function(data){   
+           $("#jqgz").html(data);   } 
+         });     
+	 $.ajax({      		//加载德育园地栏目中的新闻
+            data:{Bigclass:escape("德育园地"),n:5},   
+            beforeSend:function(){$("#tzgg").html("正在加载中…");}, 
+            success:function(data){   
+           $("#tzgg").html(data);   }  
+         });  		 
+	 $.ajax({       		//加载学生工作栏目中的新闻  
+            data:{Bigclass:escape("学生工作"),n:5},   
+            beforeSend:function(){$("#xsgz").html("正在加载中…");}, 
+            success:function(data){   
+           $("#xsgz").html(data);   } 
+         });     
+})
+
+//-->
+</script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1 id="header">衡阳师范学院人文社会科学系</h1>
+
+<div  id="nav">
+<ul><!---->
+<li><a href="#"><b>首 页</b></a></li> <li><a href="http://wgzx.hynu.cn/otype.asp?funo1=crm"><b>系部概况</b></a></li> <li><a href="http://wgzx.hynu.cn/funonews.asp?id=127"><b>专业介绍</b></a></li> <li><a href="lyb/default.asp"><b>最新动态</b></a></li> <li><a href="#"><b>教学科研</b></a></li> <li><a href="#"><b>学生工作</b></a></li> <li><a href="#"><b>规章制度</b></a></li>  <li><a href="#"><b>学科建设</b></a></li>   <li><a href="#"><b>党建工作</b></a></li> </ul></div>
+<TABLE id=__01 cellSpacing=0 cellPadding=0 width=910 align=center 
+bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD 
+    width=210 valign="top" bgColor=#d8a26b style="PADDING-RIGHT: 4px; PADDING-LEFT: 1px; PADDING-TOP: 5px"><table width="94%" border="0" align="center" cellpadding="8" cellspacing="0">
+      <tr>
+        <td class="lanmu"><span class="STYLE1">本系概况</span></td>
+      </tr>
+      <tr>
+        <td><ul id="daohang">
+          <li><a href="#">&middot; 系部概况</a></li>
+          <li><a href="#">&middot; 党政领导</a></li>
+          <li><a href="#">&middot; 专业介绍</a></li>
+          <li><a href="#">&middot; 专任教师</a></li>
+          <li><a href="#">&middot; 组织机构</a></li>
+          <li><a href="#">&middot; 管理人员</a></li>
+        </ul></td>
+      </tr>
+    </table>
+	  <table style="margin:7px 0"  width="94%" border="0" align="center" cellpadding="8" cellspacing="0">
+      <tr>
+        <td  class="lanmu"><span class="STYLE1">学科简介</span></td>
+      </tr>
+      <tr>
+        <td><ul id="daohang">
+          <li><a href="#">历史学</a></li>
+          <li><a href="#">思想政治教育</a></li>
+          <li><a href="#">哲 学</a></li>
+          <li><a href="#">马克思主义</a></li>
+          <li><a href="#">政治学</a></li>
+      
+        </ul></td>
+      </tr>
+    </table>
+	<table style="margin:7px 0"  width="94%" border="0" align="center" cellpadding="8" cellspacing="0">
+      <tr>
+        <td class="lanmu"><span class="STYLE1">文章搜索</span></td>
+      </tr>
+      <tr>
+        <td>
+          <form id="form1" name="form1" method="post" action="">
+            <p>关键字
+              <input name="key" type="text" size="18" class="input" />
+            </p>
+            <p align="center">
+              <select name="select">
+                <option value="title">--按标题--</option>
+                <option value="content">--按内容--</option>
+              </select>
+              <input type="submit" name="Submit" value="提 交"  class="input"/>
+            </p>
+          </form>
+          </td>
+      </tr>
+    </table>
+	<table style="margin:7px 0"  width="94%" border="0" align="center" cellpadding="8" cellspacing="0">
+      <tr>
+        <td  class="lanmu"><span class="STYLE1">互动交流</span></td>
+      </tr>
+      <tr>
+        <td>
+          <form id="form1" name="form1" method="post" action="">
+            <p>关键字
+              <input name="textfield" type="text" size="18" class="input"/>
+            </p>
+            <p>
+              <select name="select">
+                <option value="title">按标题</option>
+                <option value="content">按内容</option>
+              </select>
+              <input type="submit" name="Submit" value="提交" />
+            </p>
+          </form>
+          </td>
+      </tr>
+    </table>
+	<table style="margin:7px 0"  width="94%" border="0" align="center" cellpadding="8" cellspacing="0">
+      <tr>
+        <td  class="lanmu"><span class="STYLE1">友情链接</span></td>
+      </tr>
+      <tr>
+        <td><form name="form2" id="form2">
+          <p align="center">
+            <select name="menu1" onchange="MM_jumpMenu('parent',this,0)">
+              <option>系 部 网 站</option>
+              <option value="http://jfx.hynu.cn">经济与法律系</option>
+              <option value="http://zwx.hynu.cn">中文系</option>
+              <option value="http://xwx.hynu.cn">新闻与传播系</option>
+            </select>
+          </p>
+          <p align="center">
+            <select name="menu2" onchange="MM_jumpMenu('parent',this,0)">
+              <option>机 构 网 站</option>
+            </select>
+</p>
+        </form>
+        </td>
+      </tr>
+    </table>
+	<img src="images/bj_05.gif" width="129" height="144" /></TD>
+    <TD valign="top" bgcolor="#e8eadd"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="7">
+      <tr>
+        <td><table class="kuang" width="335"  height="268" border="0" cellspacing="0" cellpadding="0">
+          
+          <tr>
+            <td> 
+</td>
+          </tr>
+        </table></td>
+        <td><table class="kuang" width="348"  height="268"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="32" class="lanmu">系部动态</td>
+          </tr>
+          <tr>
+            <td height="236" valign="top">
+			<div class="top">这是第一条新闻用来测试</div>
+			<div class="top2">这是第一条新闻用来测试这是第一条新闻用来测试这是第一条新闻用来测试这是第一条新闻用来测试</div>
+			<table width="100%" border="0" cellspacing="2" cellpadding="0" id="jqgz">
+              <tr>
+                <td class="xinwen">这是第一条新闻用来测试</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><table class="kuang" width="100%" height="198" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="32"  class="lanmu">通知公告</td>
+          </tr>
+          <tr>
+            <td height="166" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="0" id="tzgg">
+              <tr>
+                <td class="xinwen">这是第一条新闻用来测试</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td><table class="kuang" width="100%" height="198" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="32"  class="lanmu">学生园地</td>
+          </tr>
+          <tr>
+            <td height="166" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="0" id="xsgz">
+              <tr>
+                <td class="xinwen">这是第一条新闻用来测试</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+      <table width="690" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="57" height="149" ><img src="images/lanmu-l.gif" width="57" height="149" /></td>
+          <td background="images/lanmu-m.jpg">
+		  <div id=demo style="overflow:hidden;width:595px;margin-top:5px;" onmouseover="stopscroll();" onmouseout="doscroll()">
+			<div id="demo1" style="white-space:nowrap;padding:0;">
+				<a href="ONEWS.asp?id=271"><img src="uppic/4314112010144224_1.gif" height=115 width=150 border="0" title="副院长张登玉教授亲临初中思想品德“国培班”现场调研"></a>
+			</div>
+		</div>
+		<!--滚动的javascrīpt-->
+		<script>
+		var t=demo.scrollWidth;
+		demo1.innerHTML+=demo1.innerHTML;
+		function doMarquee()
+		{
+			demo.scrollLeft=demo.scrollLeft<demo.scrollWidth-demo.offsetWidth?demo.scrollLeft+1:t-demo.offsetWidth;
+		}
+		function doscroll()
+		{
+  			sc=setInterval(doMarquee,20);
+		}
+		function stopscroll()
+		{
+  			clearInterval(sc);
+		}
+		doscroll();
+		</script>
+		<!--滚动的javascrīpt结束-->
+		  </td>
+          <td width="38"><img src="images/lanmu-r.gif" width="38" height="149" /></td>
+        </tr>
+      </table>
+      <TABLE height=8 cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="100%">&nbsp;</TD>
+        </TR></TBODY></TABLE><table width="100%" border="0" align="center" cellpadding="0" cellspacing="7">
+      <tr>
+        <td><table class="kuang" width="100%" height="198" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="32"  class="lanmu">学术科研</td>
+          </tr>
+          <tr>
+            <td height="166" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="0">
+              <tr>
+                <td class="xinwen">这是第一条新闻用来测试</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td><table class="kuang" width="100%" height="198" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="32"  class="lanmu">就业信息</td>
+          </tr>
+          <tr>
+            <td height="166" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="0">
+              <tr>
+                <td class="xinwen">这是第一条新闻用来测试</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+      </TR></TBODY></TABLE>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="34" background="images/bot.jpg">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="56" align="center" background="images/sf.jpg">版权所有：衡阳师范学院人文社会科学系 地址：湖南省衡阳市酃湖路 邮编：421002<br />
+      联系电话：0734-8484937</td>
+  </tr>
+</table>
+</body>
+</html>

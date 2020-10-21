@@ -1,0 +1,27 @@
+TD {
+	FONT-SIZE: 11px; color: #000000; font-family: "Arial", "Helvetica", "sans-serif"
+}
+P {
+	FONT-SIZE: 11px; color: #000000; font-family: "Arial", "Helvetica", "sans-serif"
+}
+LI {
+	FONT-SIZE: 11px
+; text-decoration: none
+; color: #000000; font-family: "Arial", "Helvetica", "sans-serif"
+}
+INPUT {
+	FONT-SIZE: 11px; color: #000000; font-family: "Arial", "Helvetica", "sans-serif"
+}
+A:link {
+	COLOR: #006600; TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+; color: #006600
+}
+A:active {
+	COLOR: #006600; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #00CCFF; TEXT-DECORATION: none
+}

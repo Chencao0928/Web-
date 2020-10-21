@@ -1,0 +1,31 @@
+5.8节留言板程序
+
+本文件夹下的renwen目录中包含7.6节新闻网站综合实例 中的全部代码。其中：
+
+7.6.2 在首页显示数据表中的新闻
+中的新闻网站首页文件是 index-C.asp
+
+7.6.3 制作动态图片轮显效果
+中的动态图片轮显文件是 flasha.asp
+
+7.6.4 制作显示新闻详细页面
+中的新闻详细页面文件是 onews.asp
+
+7.6.5 制作分栏目首页
+中的分栏目首页文件是 otype.asp
+
+
+
+7.6节新闻网站综合实例 的后台登陆地址是：
+http://localhost/chapter7/renwen/admin/adminlogin.asp
+
+用户名：admin
+密码：admin
+
+7.8节 留言板综合实例中的代码如下：
+
+indexc.asp		留言板首页
+submit.asp		添加留言的处理程序
+login.asp		后台登录页面
+chklogin.asp		检测用户登录是否成功的处理程序
+admin.asp		后台管理页面

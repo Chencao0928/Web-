@@ -1,0 +1,1 @@
+document.write('<div align=center><iframe width=150 height=210 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no src=picnews.asp></iframe></div>');
