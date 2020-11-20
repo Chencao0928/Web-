@@ -1,0 +1,9 @@
+8.4.3节中的源代码：
+
+rss.asp文件位于“chapter7/renwen/”文件夹下,运行该文件时必须手工在它的url后面加查询字符串，如http://localhost/chapter7/renwen/rss.asp?owen1=近期工作
+
+8.4.4 用FSO组件生成静态RSS文档节中的源代码：
+
+rss1.asp文件位于“chapter7/renwen/”文件夹下,运行该文件时必须手工在它的url后面加查询字符串，如http://localhost/chapter7/renwen/rss1.asp?owen1=近期工作
+
+将生成rss.xml文件。

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网站前端 - JS调用FLASH去除FLASH虚线框 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>JS调用FLASH去除FLASH虚线框</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:16:04</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">一，在HEAD里加入调用代码 <BR>程序代码&lt;script src="js文件名"&gt;&lt;/script&gt; <BR><BR>二，其中js的代码：保存成.JS文件 <BR><BR>/* ObjectSwap - Bypasses the new ActiveX Activation requirement in Internet Explorer by swapping existing ActiveX objects on the page with the same objects. Can also be used for Flash version detection by adding the param: <BR>&lt;param name="flashVersion" value="8" /&gt; to the object tag. <BR><BR>Author: Karina Steffens, www.neo-archaic.net <BR>Created: April 2006 <BR>Changes and bug fixes: May 2006 <BR>Bug fixes: June 2006 <BR>Changes: October 2006 (Included Opera9 and excluded IE5.5) <BR>*/ <BR><BR>//Check if the browser is InternetExplorer, and if it supports the getElementById DOM method <BR>var ie = (document.defaultCharset &amp;&amp; document.getElementById &amp;&amp; !window.home); <BR>var opera9 = false; <BR>if (ie){ <BR>//Check for ie 5.5 and exclude it from the script <BR>var ver=navigator.appVersion.split("MSIE") <BR>ver=parseFloat(ver[1]) <BR>ie = (ver &gt;=6) <BR>}else if (navigator.userAgent.indexOf("Opera")!=-1) { <BR>//Check for Opera9 and include it in the ObjectSwap <BR>var versi.userAgent.indexOf("Opera")+6 <BR>if (parseInt(navigator.userAgent.charAt(versionindex))&gt;=9) <BR>opera9 = true; <BR>} <BR>//Perform ObjectSwap if the browser is IE or Opera (if not just check flashVersion) <BR>var oswap = (ie || opera9) <BR><BR>//Hide the object to prevent it from loading twice <BR>if (oswap){ <BR>document.write ("&lt;style id='hideObject'&gt; object{display:none;} &lt;/style&gt;"); <BR>} <BR><BR>/*Replace all flash objects on the page with the same flash object, <BR>by rewriting the outerHTML values <BR>This bypasses the new IE ActiveX object activation issue*/ <BR>objectSwap = function(){ <BR>if (!document.getElementsByTagName){ <BR>return; <BR>} <BR>//An array of ids for flash detection <BR>var stripQueue = []; <BR>//Get a list of all ActiveX objects <BR>var objects = document.getElementsByTagName('object'); <BR>for (var i=0; i&lt;objects.length; i++){ <BR>var o = objects; <BR>var h = o.outerHTML; <BR>//The outer html omits the param tags, so we must retrieve and insert these separately <BR>var params = ""; <BR>var hasFlash = true; <BR>for (var j = 0; j&lt;o.childNodes.length; j++) { <BR>var p = o.childNodes[j]; <BR>if (p.tagName == "PARAM"){ <BR>//Check for version first - applies to all browsers <BR>//For this to work, a new param needs to be included in the object with the name "flashVersion" eg: <BR>//&lt;param name="flashVersion" value="7" /&gt; <BR>if (p.name == "flashVersion"){ <BR>hasFlash = detectFlash(p.value); <BR>if (!hasFlash){ <BR>//Add the objects id to the list (create a new id if there's isn't one already) <BR>o.id = (o.id == "") ? ("stripFlash"+i) : o.id; <BR>stripQueue.push(o.id); <BR>break; <BR>} <BR>} <BR>params += p.outerHTML; <BR>} <BR>} <BR>if (!hasFlash){ <BR>continue; <BR>} <BR>//Only target internet explorer <BR>if (!oswap){ <BR>continue; <BR>} <BR>//Avoid specified objects, marked with a "noswap" classname <BR>if (o.className.toLowerCase().indexOf ("noswap") != -1){ <BR>continue; <BR>} <BR>//Get the tag and attributes part of the outer html of the object <BR>var tag = h.split("&gt;")[0] + "&gt;"; <BR>//Add up the various bits that comprise the object: <BR>//The tag with the attributes, the params and it's inner html <BR>var newObject = tag + params + o.innerHTML + " &lt;/OBJECT&gt;"; <BR>//And rewrite the outer html of the tag <BR>o.outerHTML = newObject; <BR>} <BR>//Strip flash objects <BR>if (stripQueue.length) { <BR>stripFlash(stripQueue) <BR>} <BR>//Make the objects visible again <BR>if (oswap){ <BR>document.getElementById("hideObject").disabled = true; <BR>} <BR>} <BR><BR>detectFlash = function(version){ <BR>if(navigator.plugins &amp;&amp; navigator.plugins.length){ <BR>//Non-IE flash detection. <BR>var plugin = navigator.plugins["Shockwave Flash"]; <BR>if (plugin == undefined){ <BR>return false; <BR>} <BR>var ver = navigator.plugins["Shockwave Flash"].description.split(" ")[2]; <BR>return (Number(ver) &gt;= Number(version)) <BR>} else if (ie &amp;&amp; typeof (ActiveXObject) == "function"){ <BR>//IE flash detection. <BR>try{ <BR>var flash = new ActiveXObject("ShockwaveFlash.ShockwaveFlash." + version); <BR>return true; <BR>} <BR>catch(e){ <BR>return false; <BR>} <BR>} <BR>//Catchall - skip detection <BR>return true; <BR>} <BR><BR>//Loop through an array of ids to strip <BR>//Replace the object by a div tag containing the same innerHTML. <BR>//To display an alternative image, message for the user or a link to the flash installation page, place it inside the object tag. <BR>//For the usual object/embed pairs it needs to be enclosed in comments to hide from gecko based browsers. <BR>stripFlash = function (stripQueue){ <BR>if (!document.createElement){ <BR>return; <BR>} <BR>for (var i=0; i&lt;stripQueue.length; i++){ <BR>var o = document.getElementById(stripQueue); <BR>var newHTML = o.innerHTML; <BR>//Strip the comments <BR>newHTML = newHTML.replace(/&lt;!--\s/g, ""); <BR>newHTML = newHTML.replace(/\s--&gt;/g, ""); <BR>//Neutralise the embed tag <BR>newHTML = newHTML.replace(/&lt;embed/gi, "&lt;span"); <BR>//Create a new div element with properties from the object <BR>var d = document.createElement("div"); <BR>d.innerHTML = newHTML; <BR>d.className = o.className; <BR>d.id = o.id; <BR>//And swap the object with the new div <BR>o.parentNode.replaceChild(d, o); <BR>} <BR>} <BR><BR>//Initiate the function without conflicting with the window.onload event of any preceding scripts <BR>var tempFunc = window.onload; <BR>window.onload = function(){ <BR>if (typeof (tempFunc) == "function"){ <BR>try{ <BR>tempFunc(); <BR>} catch(e){} <BR>} <BR>objectSwap(); <BR>} <BR><BR><SPAN style="COLOR: red">说明：</SPAN>做门户网站时有时候我们需要将FLASH动画单独做成JS文件来调用，这样大大加快了页面的浏览速度，而且显得整个页面干净整洁。但一般将FLASH封装成JS，在有些浏览器里面FLASH动画显示虚框，可以封装上面的代码保存为JS文件，在调用JS FLASH的页面里面直接引用即可。 <BR></td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

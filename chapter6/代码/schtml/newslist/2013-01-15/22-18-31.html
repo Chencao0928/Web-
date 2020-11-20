@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title> 经验分享 - 设网站文件目录与数据库权限防止入侵 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>设网站文件目录与数据库权限防止入侵</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:18:31</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">&nbsp;网站运营的过程中，最令站长头痛的可能就是网站被入侵了，实际上，如果提前设置好网站的目录权限，就可以保证网站能够经受大部分的漏洞攻击。本文介绍了设置文件目录和数据库权限的方法，设置权限的方法也并不难，只要根据本文一步步进行操作，就可以大大提高网站的安全性。<BR><BR>网站目录权限的设置方法<BR><BR>　　大多数网站都是采用程序搭建，对于系统管理的目录，可以将其设置为可读也可执行脚本，但不可写入的权限;但是对于放置网页静态文件的目录，以及放置图片文件、模板文件的目录，就可以将其设置为可读写但不可执行的系统权限。在权限分配明确之后，即使系统被入侵，也只能浏览而无法对文件进行直接的操作。<BR><BR>　　对于能够执行脚本的文件，最好设置只能读而不能写的权限(如图)，而需要写入的文件则将其设置为不能执行脚本，目录权限这样配置下来，网站系统的安全性会大大提高。如果只需要读取的目录或文件就只给读取权限，需要读取和写入的就给读取和写入权限即可其他的一概不给！<BR><BR><BR>　　下面就架设单独一个网站相应的IIS权限和网站目录权限设置做下具体的介绍和说明。<BR><BR>　　iis配置(包括网站所在目录)<BR><BR>　　1.新建自己的网站(*注意：在应用程序设置中执行权限设为无，在需要的目录里再更改)，目录不在系统盘<BR><BR>　　注：为支持asp.net,将系统盘\Inetpub\wwwroot中的aspnet_client文件夹复制到web根目录下，并给web根目录加上users权限。<BR><BR>　　2.删掉系统盘\inetpub目录<BR><BR>　　3.删除不用的映射<BR><BR>　　在"应用程序配置"里，只给必要的脚本执行权限：ASP、ASPX。<BR><BR>　　4.为网站创建系统用户<BR><BR>　　A.例如：网站为www.zzaq.net，新建用户www.zzaq.net权限为guests。然后在web站点属性里"目录安全性"---"身份验证和访问控制"里设置匿名访问使用下列Windows 用户帐户"的用户名和密码都使用www.zzaq.net这个用户的信息。(用户名：主机名\www.zzaq.net)<BR><BR>　　B.给网站所在的磁盘目录添加用户www.zzaq.net，只给读取和写入的权限。<BR><BR>　　5.设置应用程及子目录的执行权限<BR><BR>　　A.主应用程序目录中的"属性--应用程序设置--执行权限"设为纯脚本<BR><BR>　　B.在不需要执行asp、asp.net的子目录中，例如上传文件目录，执行权限设为无<BR><BR>　　6.应用程序池设置<BR><BR>　　我的网站使用的是默认应用程序池。设置"内存回收"：这里的最大虚拟内存为：1000M，最大使用的物理内存为256M，这样的设置几乎是没限制这个站点的性能的。<BR><BR>　　回收工作进程(分钟)：1440<BR><BR>　　在下列时间回收工作进程：06:00<BR><BR>数据库权限也要仔细设置<BR><BR>　　对于网站来说，数据库可以说是站点的核心，所有网站的内容都存储在数据库中。所以说数据库安全也是需要注意的地方。对于MySQL数据库来说，最好不要对网站直接使用root管理用户的权限，而要专门为每个站点开通一个数据库账号，而且将账户的权限设置仅限于操作当前数据库目录，并且对这些单独的MYSQL账号去掉file和EXECUTE的执行权限，这样一来，即使数据库被SQL注入，也只能到数据库一级，而无法拿到整个数据库服务器的权限。这样一来，只要经常对网站的数据库进行备份，就很少会出现数据库被入侵的情况。<BR><BR>　　另外需要注意的是，由于很多建站系统并没有使用数据库的存储过程，因此最好禁用FILE、EXECUTE　等执行存储过程或文件操作的权限。<BR><BR>　　小提示：对于Access的数据库来说，可以将数据库的存放位置进行修改，最好是较为隐蔽的目录，这样会避免数据库文件被恶意探测下载。另外，一些程序也支持修改后缀，比如可以将。mdb的数据库文件修改为。asa等后缀名，同样可以有效地保护数据库安全。<BR><BR>　　删除不需要的文件<BR><BR>　　很多内容管理系统中，都会在空间中存在很多以后并不需要的文件，最普遍的可能就属于系统安装文件了，这类文件通常被命名为install.php或者install.asp，如果你的空间中存在类似的文件，现在就赶快删除吧。<BR><BR>　　另外，一些CMS也会存在很多功能，如问答系统等等，但是往往这些功能在网站中都不会用到，这时候就建议将这些功能的目录删除，或者仅保留Html静态页面，然后将目录设置为可读写但不可执行的权限。&#65279; </td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+Safari浏览器与其他浏览器显示效果不一致问题的探讨
+
+很多人都发现过有些网页在Safari浏览器中的显示效果和其他浏览器都不一致，以前我也发现过这个问题，但没有去理会，但现在使用Safari浏览器的用户越来越多了，尤其是在国外。所以不得不考虑网页在Safari浏览器中的兼容性。
+
+我的这个网页，在一个单元格内上面放了两个Spry选项式面板，下面是三个栏目框表格，在IE6，IE7，Firefox 3，Opera下预览都没有问题，效果如下。
+
+但是在Safari 4下面，就变成下面的效果了，三个栏目框的表格跑到Spry选项式面板的右边去了，并且它们都没占据网页空间，所以还和右边栏重叠起来了。
+
+根据我的经验，一般跑到右边去都是因为受到前面元素浮动的影响，所以我在下面三个栏目框中的第一个中加了一条清除浮动，代码改为<table width="96%" height="141" border="0" align="center" style="clear:both;" cellpadding="0" cellspacing="0">这时效果马上就正常了。
+
+因此我想，在一般浏览器中，当外围容器容纳不下受浮动影响的元素时，该元素会自动换行，但是Safari浏览器却不是这样，它是这样解释的，只要设置了浮动，受浮动影响的元素总是会顶到浮动元素的这一行上来，如果外围容器容纳不下，这些受浮动影响的元素就会和其他元素发生重叠。
+
+
+
+
+真的是这样吗，我做了一个实验，发现当浮动元素下面的元素是表格时，Safari的效果就是这样的，而当浮动元素下面的元素是div等一般的块集元素时，这些块级元素并不会顶到浮动元素这一行来，和其他浏览器显示效果是一致的。
+实验代码如下：
+<style type="text/css">
+div{
+	padding:10px; 	margin:10px;
+	border:1px dashed #111111;
+	background-color:#90baff;
+	}
+.father{
+	background-color:#ffff99;
+	border:1px solid #111111;
+	width:400px;
+	}
+	.son1{	float:left; 
+	width:400px;}
+</style> 
+
+<div class="father">
+		<div class="son1">Box-1</div>
+		<div class="son2">Box-2</div>
+		<div class="son3">Box-3</div>
+</div>
+在Firefox和Safari 4中的显示效果如下，可发现显示效果基本一致，
+将第二个div替换成一个表格之后，Safari中的显示如下：
+<div class="father">
+		<div class="son1">Box-1</div>
+		<table width="200" border="1">
+  	<tr><td>表 格</td> </tr>
+	</table>
+
+		<div class="son3">Box-3</div>
+</div>

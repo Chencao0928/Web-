@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网站前端 - js控制图片左右不间断滚动代码 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>js控制图片左右不间断滚动代码</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:16:27</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">&nbsp;今天给一个客户做网站，要求左右不间断滚动的，用Marquee 标签做出来的效果会留白，显得不是很美观。从互联网上搜集了一段不错的js控制的图片左右不间断滚动代码，可以用来做美化用。<BR><BR>1,滚动的内容页面，可以用文字也可以用图片等网页信息内容<BR><BR>&lt;TABLE cellSpacing=0 cellPadding=0 width=97% align=center border=0&gt;<BR>&lt;TBODY&gt;<BR>&lt;TR&gt;<BR>&lt;TD align="center"&gt;<BR>&lt;DIV id=demo style="OVERFLOW: hidden; WIDTH: 97%; COLOR: #ffffff"&gt;<BR>&lt;TABLE cellSpacing=0 cellPadding=0 align=left border=0 cellspace="0"&gt;<BR>&lt;TBODY&gt;<BR>&lt;TR&gt;<BR>&lt;TD id=demo1 vAlign=top&gt;&lt;table width="97%" height="100%" border="0" cellpadding="0" cellspacing="0"&gt;<BR>&lt;tr&gt;<BR>&lt;td&gt;&lt;img src="images/gd01.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd02.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd03.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd04.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd05.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd06.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd07.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd08.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="images/gd09.jpg"&gt;&lt;/td&gt;<BR>&lt;td&gt;&lt;img src="/template/fengyun/images/gd10.jpg"&gt;&lt;/td&gt;<BR>&lt;/tr&gt;<BR>&lt;/table&gt;&lt;/TD&gt;<BR>&lt;TD id=demo2 vAlign=top&gt; &lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;&lt;/DIV&gt;<BR>&lt;script language=Javascript src="js/scrollpic.js"&gt;&lt;/script&gt; &lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;<BR><BR>2，调用的js特效代码<BR><BR>var speed3=25//速度数值越大速度越慢<BR>demo2.innerHTML=demo1.innerHTML<BR>function Marquee(){<BR>if(demo2.offsetWidth-demo.scrollLeft&lt;=0)<BR>demo.scrollLeft-=demo1.offsetWidth<BR>else{<BR>demo.scrollLeft++<BR>}<BR>}<BR>var MyMar=setInterval(Marquee,speed3)<BR>demo.onmouseover=function() {clearInterval(MyMar)}<BR>demo.onmouseout=function() {MyMar=setInterval(Marquee,speed3)} </td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

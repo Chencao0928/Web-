@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title> 经验分享 - SQLserver数据库出现日志文件已满的解决问题 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>SQLserver数据库出现日志文件已满的解决问题</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:17:59</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">&nbsp;&nbsp;&nbsp; 今天在对SQLserver数据库进行管理维护时，发现数据库的日志文件已经达到5个G了，加上网站本身页面和备份的数据库等文件，60多个G的一个磁盘已经剩下得不多了，导至网站因为SQLserver数据库日志文件太大而出现“ 数据库 'xx' 的日志已满。请备份该数据库的事务日志以释放一些日志空间”的问题。为了尽快使用网站恢复正常使用，技术部直接备份了原数据库日志文件，然后又新建了一个数据库日志，整理出一些磁盘空间出来，这是在出现问题第一个最为便利的方法。<BR><BR>出现此错误的原因是：<BR><BR>&nbsp;&nbsp;&nbsp; sql server数据库使用时间长了，日志文件会很大，占用过多系统资源，数据库可能会报 log full 的错误，甚至磁盘空间占满让数据库处于不可用状态，这个时候我们需要清理数据库，以前有人开发了数据库日志清理工具，好像还要收费，其实很简单就可以完成这个操作，请跟我来：<BR><BR>&nbsp;&nbsp;&nbsp; 在解决问题之后，从网站又查找了两种网络上常用的方法，以备查阅使用，如下：<BR><BR>方法一：清空日志。<BR><BR>1、打开查询分析器，输入命令DUMP TRANSACTION 数据库名 WITH NO_LOG<BR><BR>2、再打开企业管理器--右键你要压缩的数据库--所有任务--收缩数据库--收缩文件--选择日志文件--在收缩方式里选择收缩至: ,这里会给出一个允许收缩到的最小M数,直接输入这个数,确定就可以了。<BR><BR>&nbsp;&nbsp;&nbsp; 方法二：有一定的风险性，因为SQL SERVER的日志文件不是即时写入数据库主文件的，如处理不当，会造成数据的损失。<BR><BR>1、删除LOG<BR><BR>分离数据库 企业管理器－＞服务器－＞数据库－＞右键－＞分离数据库<BR><BR>2、删除LOG文件<BR><BR>附加数据库 企业管理器－＞服务器－＞数据库－＞右键－＞附加数据库<BR><BR>此法生成新的LOG，大小只有500多K。<BR><BR>注意：建议使用第一种方法。<BR><BR>&nbsp;&nbsp;&nbsp; 如果以后，不想要它变大:SQL2000下使用：在数据库上点右键-&gt;属性-&gt;选项-&gt;故障恢复-模型-选择-简单模型,或用SQL语句：alter database 数据库名 set recovery simple,另外，数据库属性有两个选项，与事务日志的增长有关：Truncate log on checkpoint(此选项用于SQL7.0，SQL 2000中即故障恢复模型选择为简单模型)<BR><BR>&nbsp;&nbsp;&nbsp; 当执行CHECKPOINT 命令时如果事务日志文件超过其大小的70% 则将其内容清除在开发数据库时时常将此选项设置为True<BR><BR>&nbsp;&nbsp;&nbsp; 定期对数据库进行检查当数据库文件或日志文件的未用空间超过其大小的25%时，系统将会自动缩减文件使其未用空间等于25% 当文件大小没有超过其建立时的初始大小时不会缩减文件缩减后的文件也必须大于或等于其初始大小对事务日志文件的缩减只有在对其作备份时或将Truncate log on checkpoint 选项设为True 时才能进行。<BR><BR>&nbsp;&nbsp;&nbsp; 注意：一般立成建立的数据库默认属性已设好，但碰到意外情况使数据库属性被更改，请用户清空日志后，检查数据库的以上属性，以防事务日志再次充满。&#65279; </td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

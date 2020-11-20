@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网站前端 - jquery form $.post提交的一些问题 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>jquery form $.post提交的一些问题</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:15:18</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">对应js处理页面：<BR>/**<BR>* <BR>*/<BR>$(function() {//加载完后处理页面<BR>//alert($("#faceimg").attr("src")) ;<BR>$("#faceimg").click(function(){<BR>window.open('face.php','face','width=400,height=400,top=0,left=0,scrollbars=1');<BR>});<BR><BR>$("#mycheckcode").click(<BR>function(){<BR>var url="includes/code.php?aa="+Math.random();<BR>$("#mycheckcode").attr("src",url);<BR><BR>}<BR>);<BR>/***<BR>//输入的每个值都要以post的方法放到data里面<BR>var adata='';<BR>$("input").each(<BR>function(){<BR>adata+=$(this).attr('name')+"="+$(this).val()+"&amp;";<BR>}<BR>);<BR><BR>$.ajax({<BR>type: "POST",//提交的方式 <BR>url: "registerProcess.php",//提交对应的页面<BR>dataType: "json",//返回的是什么格式<BR>data:adata,//post过去的data<BR>fail:function(msg){<BR>//失败处理函数<BR>},<BR>success:function(){<BR>//成功处理函数<BR><BR>}<BR>}); <BR>**/<BR>//作验证<BR>//如果是必填的，则加红星标识.<BR>$("form :input.required").each(function(){<BR>var $required = $("&lt;strong class='high'&gt; *&lt;/strong&gt;"); //创建元素<BR>$(this).parent().append($required); //然后将它追加到文档中<BR>});<BR>//文本框失去焦点后<BR>$('form :input').blur(function(){<BR>var $parent = $(this).parent();<BR>$parent.find(".formtips").remove();<BR>//验证用户名<BR>if( $(this).is('#username') ){<BR>if( this.value=="" || this.value.length &lt; 6 ){<BR>var errorMsg = '请输入至少6位的用户名.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var username = {"username":$(this).val()}; //json格式传过处理页面<BR>var changeurl = "action/UserAction.php?act=IsExistUserName&amp;flg=ling"; <BR>//用Post的方式 提交过去,验证用户名是否存在 <BR>$.post(changeurl,username,function(res){//成功返回值 <BR>if(res==1){<BR>var errorMsg ="用户名好受欢迎哦，再试下其他的吧";<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var okMsg ="用户名可用.";<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}<BR>});<BR>}<BR><BR>}<BR>//验证密码长度<BR>if($(this).is("#password")){<BR>if(this.value==""||this.value.length&lt;2){<BR>var errorMsg = '请输入至少2个字符的密码.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var okMsg = '输入正确.';<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}<BR><BR><BR>}<BR>//验证两次密码是否一致<BR>if($(this).is('#repassword')){<BR>if(this.value==""||this.value.length&lt;2){<BR>var errorMsg = '请输入至少2个字符的密码.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var password=$("#password").val();//取到密码的值<BR>if(this.value!=password){<BR>var errorMsg = '两次密码输入不一致.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var okMsg = '输入正确.';<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}<BR>}<BR>}<BR><BR>//密码问题和密码提示要至少2个字符<BR>if($(this).is("#passtips")||$(this).is("#passans")){<BR>if( this.value=="" || this.value.length &lt; 6 ){<BR>var errorMsg = '请输入至少2位.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var okMsg = '输入正确.';<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}<BR>}<BR><BR>//验证邮件<BR>if( $(this).is('#email') ){<BR>if( this.value=="" || ( this.value!="" &amp;&amp; !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value) ) ){<BR>var errorMsg = '请输入正确的E-Mail地址.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR>}else{<BR>var okMsg = '输入正确.';<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}<BR>}<BR><BR>//验证qq<BR>var qq=/[1-9][0-9]{4,}/ ;<BR>if($(this).is("#qq")){<BR>if(qq.test(this.value) ){<BR>var okMsg = '输入正确.';<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}else{<BR>var errorMsg = '请输入正确的QQ.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR><BR>}<BR>}<BR>//验证地址<BR>var url=/^https?:\/\/(\w+\.)?[\w\-\.]+(\.\w+)+$/ ;<BR>if($(this).is("#url")){<BR>if(url.test(this.value) ){<BR>var okMsg = '输入正确.';<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR>}else{<BR>var errorMsg = '请输入正确的地址格式.';<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR><BR>}<BR>}<BR>if($(this).is("#code")){<BR>var url="includes/getSession.php";<BR>$.post(url, {'sessionName':this.name,'value':this.value},function(res){<BR>if(res==1){<BR>var okMsg ="输入正确";<BR>$parent.append('&lt;span class="formtips onSuccess"&gt;'+okMsg+'&lt;/span&gt;');<BR><BR>}else{<BR>var errorMsg ="验证码不正确";<BR>$parent.append('&lt;span class="formtips onError"&gt;'+errorMsg+'&lt;/span&gt;');<BR><BR>}<BR>});<BR><BR>}<BR>}).focus(function(){//重新操作时重新赋值事件<BR>$(this).triggerHandler("blur");//绑定处理事件<BR>});<BR>/**这部分个人感觉有点多了<BR>.keyup(function(){<BR>$(this).triggerHandler("blur");<BR>}).focus(function(){<BR>$(this).triggerHandler("blur");<BR>});**///end blur<BR><BR><BR>//提交，最终验证。<BR>$('#send').click(function(){<BR>$("form:input.required").trigger('blur');<BR>var numError = $('form .onError').length;<BR>if(numError){<BR>return false;<BR>} <BR>var url="registerProcess.php";<BR>//var data={'username':$("#username").val(),'password':$("#password").val(),'repassword':$("#repassword").val(),'passtips':$('#passtips').val(),'passans':$("#passans").val(),<BR>// 'email':$("#email").val(),'qq':$("#qq").val(),'sex':$(":input[name='sex'][checked]").val(),'url':$("#url"),'faceimg':$("#faceimg").attr("src")};<BR><BR>$.post(url,$("#myform").serialize(),function(res){<BR>if(res==1){<BR>alert("注册成功,请进入登录界面");<BR>}else{<BR>alert("没有成功");<BR>}<BR><BR>});<BR><BR>});<BR><BR>//重置<BR>$('#res').click(function(){<BR>$(".formtips").remove(); <BR>});<BR><BR><BR>});<BR><BR><BR>而处理form表单处理页面registerProcess.php<BR>&lt;?php<BR>//处理register过来的内容<BR><BR>if(!defined('IN_TG')){<BR>exit('Access Defined');<BR>}<BR>//唯一标识 md5(uniqid(rand(),true));32位 更历害的可以是40位的 sha1(uniqid(rand(),true));<BR>require_once ROOT_PATH.'includes/common.inc.php';<BR>require_once ROOT_PATH.'model/userservice.class.php';<BR>$hCon=new stdClass();//设置一个对象<BR>$hCon-&gt;uniqid=$_SESSION['uniqid'];<BR>$hCon-&gt;active=$_SESSION['active'];<BR>$hCon-&gt;username=trim($_POST['username']);//去掉空格<BR>$hCon-&gt;password=md5($_POST['password']);//密码加密<BR>$hCon-&gt;repassword=md5($_POST['repassword']);<BR>$hCon-&gt;question=_mysql_string($_POST['passtips']);//去掉转义字符 <BR>$hCon-&gt;answer=_mysql_string($_POST['passans']);<BR>$hCon-&gt;sex=_mysql_string($_POST['sex']);<BR>$hCon-&gt;face=_mysql_string($_POST['faceimg']);<BR>$hCon-&gt;qq=$_POST['qq'];<BR>$hCon-&gt;url=_mysql_string($_POST['url']);<BR>$hCon-&gt;email=_mysql_string($_POST['email']);<BR>session_start();<BR>if($hCon-&gt;uniqid!=$_SESSION['uniqid']){<BR>_alert_back("防止恶意提交表单");<BR>}<BR>$userservice=new CUserService();<BR>$res=$userservice-&gt;addUser($hCon);<BR>print $res; </td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>PHP程序员 - PHP更新文章时同时更新对应的HTML页面 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>PHP更新文章时同时更新对应的HTML页面</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:12:41</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left"><P>&nbsp;&nbsp;&nbsp; 编辑文章时应该将其对应的Html静页面同时进行更新，下面来看一下“PHP更新文章时同时更新对应的Html页面”的思路，大致是这样的，执行的程序首先要将字段接受过来，这里有一个关键是有一个字段是保存Html的路径，接受过来之后，再将对应的模板打开，进行新内容的替换，重新生成Html。</P>
+<P><A title=在新窗口打开图片 href="http://www.60ie.net/download.asp?id=168" target=_blank></A></P>
+<P>下面是编辑时的执行程序：</P>
+<P>&lt;?php<BR>if($_SESSION["admin"]&lt;&gt;session_id())<BR>{<BR>header("location:admin.php");<BR>}<BR>require_once("../inc/conn.php");<BR>$id=$_GET["id"];<BR>if($_POST["Submit"])<BR>{<BR>$title=$_POST["title"];<BR>$typeid=$_POST["typ"];<BR>$sql="select * from newstype where newstypeid=$typeid";<BR>$rs=mysql_query($sql);<BR>$rows=mysql_fetch_assoc($rs);<BR>$type=$rows["newstype"];<BR>$content=$_POST["d_content"];<BR>$source=$_POST["source"];<BR>$path=$_POST["path"];<BR>$time=$_POST["time"];<BR>$root=$_SERVER['DOCUMENT_ROOT'];<BR>$filepath="$root/newslist/$path";<BR>if(file_exists($filepath))<BR>{<BR>$moban="$root/moban/moban.html";<BR>$fp=fopen($moban,"r");<BR>$str=fread($fp,filesize($moban));<BR>fclose($fp);<BR>$str=str_replace("{-type-}",$type,$str);<BR>$str=str_replace("-title-",$title,$str);<BR>$str=str_replace("-time-",$time,$str);<BR>$str=str_replace("-content-",$content,$str);<BR>$str=str_replace("-source-",$source,$str);<BR>$fp=fopen($filepath,"w");<BR>fwrite($fp,$str);<BR>fclose($fp);<BR>}<BR>$sql="update newscontent set newstypeid=$typeid,newstitle='$title',newssource='$source' where newsid=$id";<BR>if(mysql_query($sql))<BR>{<BR>?&gt;<BR>&lt;h2 style="color:#FF0000" align="center"&gt;修改成功&lt;/h2&gt;<BR>&lt;h3 align="center"&gt;&lt;a href="admin.php"&gt;返回&lt;/a&gt;&lt;/h3&gt;<BR>&lt;?php<BR>}<BR>else<BR>{<BR>?&gt;<BR>&lt;h2 style="color:#009900" align="center"&gt;修改失败&lt;/h2&gt;<BR>&lt;h3 align="center"&gt;&lt;a href="admin.php"&gt;返回&lt;/a&gt;&lt;/h3&gt;<BR>&lt;?php<BR>}<BR>die();<BR>}<BR>?&gt;</P>
+<P>&nbsp;&nbsp;&nbsp; 其实只要想明白其中的原理了，也就不难理解了。刚开始的 if 语句不用管，是一个验证是否登陆的语句，如果没有admin的值，会跳转到 admin.php页面(上次发的源码里面没有这一句，这次加上了),require_once("../inc/conn.php");这句就是包含数据库连接的文件。$id=$_GET["id"];这个就是接受过来的新闻ID，一定要有这句，否则找不到要更新哪篇文章，下面的if语句就是当Submit接受的不为空的时候，将进行文章更新操作，数据库里面的更新好理解，只要有一条Updata语句即可，这里的关键在于中间的 if(file_exists($filepath)) 和下面执行的句子了，这里的意思是判断文章的路径是不是存在，如果存在的话就进行更新替换对应的html操作。进行替换这里依然用的是str_replace的函数。这些进行完以后，下面就有一个判断是否修改成功，很简单就不再阐述了。</P></td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

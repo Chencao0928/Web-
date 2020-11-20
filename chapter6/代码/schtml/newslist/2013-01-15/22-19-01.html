@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title> 经验分享 - 服务器的w3wp.exe进程占用cpu和内存过多的问题 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>服务器的w3wp.exe进程占用cpu和内存过多的问题</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:19:01</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">&nbsp;在IIS6下，经常出现w3wp.exe的内存及CPU占用不能及时释放，从而导致服务器响应速度很慢。<BR><BR>解决CPU占用过多：<BR>1、在IIS中对每个网站进行单独的应用程序池配置。即互相之间不影响。<BR>2、设置应用程序池的CPU监视，不超过25%（服务器为4CPU），每分钟刷新，超过限制时关闭。<BR><BR>根据w3wp取得是哪一个应用程序池：<BR><BR>1、在任务管理器中增加显示pid字段。就可以看到占用内存或者cpu最高的进程pid<BR>2、在命令提示符下运行iisapp -a。注意，第一次运行，会提示没有js支持，点击确定。然后再次运行就可以了。这样就可以看到pid对应的应用程序池。（iisapp实际上是存放在C:\windows\system32目录下的一个VBS脚本，全名为iisapp.vbs，如果你和我一样，也禁止了Vbs默认关联程序，那么就需要手动到该目录，先择打开方式，然后选“Microsoft (r) Windows Based Script Host”来执行，就可以得到PID与应用程序池的对应关系。）<BR>3、到iis中察看该应用程序池对应的网站，就ok了，做出上面的内存或CPU方面的限制，或检查程序有无死循环之类的问题。<BR><BR>&nbsp;&nbsp;&nbsp; 解决内存占用过多，可以做以下配置：<BR><BR>1、在IIS中对每个网站进行单独的应用程序池配置。即互相之间不影响。<BR>2、设置应用程序池的回收时间，默认为1720小时，可以根据情况修改。再设置当内存占用超过多少（如500M），就自动回收内存。<BR><BR>我的设置如下：<BR><BR>&nbsp;&nbsp;&nbsp; 首先是对CPU的限制：在启用cpu监视后，我设置该应用程序池最大的cpu使用率为50%。设置刷新cpu时间为1分钟，设置操作为“关闭”。最大工作进程数设置为1。这个意思是，IIS刷新检测该独立池的CPU使用情况时间为1分钟，如果超过设置的cpu限制50％，就会发出关闭池的指令，要求池在指定的时间内关闭。如果池成功在这个时间内关闭，IIS会重启动一个新池，此段时间很短，一般不会有什么感觉，池就重新开启了，对于访问网站的人基本是不会有感觉的。但如果池没有在指定时间内关闭，IIS就会强行关闭它一个刷新CPU时间。在这个停止的时间内，网站无法访问，提示“Service Unavaliable”。 </td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

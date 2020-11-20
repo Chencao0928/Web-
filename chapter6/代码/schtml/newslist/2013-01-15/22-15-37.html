@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网站前端 - 错误:Object 标记不能放在另一个 Object 标记内解决方法 - 夏日博客</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="243" valign="top"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="520" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="/images/banner.jpg" width="700" height="200" /></td>
+      </tr>
+    </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/menu.jpg">
+        <tr>
+          <td width="100" height="38" align="center"><a href="/index.php" title="首页" class="menu">首页</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=3" title="网络随笔" class="menu">网络随笔</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=4" title="PHP程序员" class="menu">PHP程序员</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=5" title="网站前端" class="menu">网站前端</a></td>
+          <td width="100" align="center"><a href="/typeid.php?typeid=6" title="经验分享" class="menu">经验分享</a></td>
+          <td width="100" align="center"><a href="#" title="源码研究" class="menu">源码研究</a></td>
+        </tr>
+      </table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" class="line">
+      <tr>
+        <td width="624" bgcolor="#FFFFFF">&nbsp;&nbsp;<strong>●&nbsp;&nbsp;新闻资讯</strong></td>
+        <td width="126" align="center" bgcolor="#FFFFFF" class="w_font"><a href="http://www.60ie.net/article/5/264.html" target="_blank" title="程序帮助">程序帮助</a></td>
+      </tr>
+    </table>
+      <table width="700" height="100%" border="0" align="center" cellpadding="8" cellspacing="0">
+        <tr>
+          <td height="470" align="left" valign="top" bgcolor="#FFFFFF">
+		  
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="22"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="center"><strong>错误:Object 标记不能放在另一个 Object 标记内解决方法</strong></td>
+                  </tr>
+                </table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+	<tr>
+	  <td height="3" align="right" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="right" valign="middle">来源：夏日博客    发布时间：2013-01-15 22:15:37</td>
+	  </tr>
+	<tr>
+	  <td height="3" align="left" background="/images/line1.gif"></td>
+	  </tr>
+	<tr>
+	  <td height="20" align="left">&nbsp;今天将一个ASP网站放到WIN7服务器上面调试，网站正常运行，一个页面出现 Object 标记不能放在另一个 Object 标记内 ASP不能嵌套，在XP系统和2003里面正常运行，WIN7不支持这种嵌套方法,这是ASP本身的问题。<BR><BR>错误类型：<BR>Active Server Pages, ASP 0139 (0x80004005)<BR>Object 标记不能放在另一个 Object 标记内。<BR>本来html页面访问好好的，改成asp后，却出现了这个错误。<BR>典型的服务器端没事找客户端的磋！<BR>解决办法：<BR>&lt;div class="w960"&gt;<BR>&lt;%response.Write("&lt;object id=""FlashID"" classid=""clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"" width=""959"" height=""388""&gt;")%&gt;<BR>&lt;param name="movie" value="banner_1up.swf" /&gt;<BR>&lt;param name="quality" value="high" /&gt;<BR>&lt;param name="wmode" value="opaque" /&gt;<BR>&lt;param name="swfversion" value="8.0.35.0" /&gt;<BR>&lt;!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 --&gt;<BR>&lt;param name="expressinstall" value="Scripts/expressInstall.swf" /&gt;<BR>&lt;!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 --&gt;<BR>&lt;!--[if !IE]&gt;--&gt;<BR>&lt;%response.Write("&lt;object type=""application/x-shockwave-flash"" data=""banner_1up.swf"" width=""959"" height=""388""&gt;")%&gt;<BR>&lt;!--&lt;![endif]--&gt;<BR>&lt;param name="quality" value="high" /&gt;<BR>&lt;param name="wmode" value="opaque" /&gt;<BR>&lt;param name="swfversion" value="8.0.35.0" /&gt;<BR>&lt;param name="expressinstall" value="Scripts/expressInstall.swf" /&gt;<BR>&lt;!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 --&gt;<BR>&lt;div&gt;<BR>&lt;h4&gt;此页面上的内容需要较新版本的 Adobe Flash Player。&lt;/h4&gt;<BR>&lt;p&gt;&lt;a href="<A href="http://www.adobe.com/go/getflashplayer" rel=external target=_blank><FONT color=#0066cc>http://www.adobe.com/go/getflashplayer</FONT></A>"&gt;&lt;img src="<A href="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" rel=external target=_blank><FONT color=#0066cc>http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif</FONT></A>" alt="获取 Adobe Flash Player" width="112" height="33" /&gt;&lt;/a&gt;&lt;/p&gt;<BR>&lt;/div&gt;<BR>&lt;!--[if !IE]&gt;--&gt;<BR>&lt;%response.Write("&lt;/object&gt;")%&gt;<BR>&lt;!--&lt;![endif]--&gt;<BR>&lt;%response.Write("&lt;/object&gt;")%&gt;<BR>&lt;/div&gt;<BR><BR>还有一种是 需要把EMBED标签嵌套放在OBJECT标签内,就如上面代码例子一样，这种方法没有测试过。 <BR></td>
+	  </tr>
+</table>
+</td>
+                </tr>
+            </table>
+		  
+		  </td>
+        </tr>
+      </table></td>
+    </tr>
+</table>
+      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D1CDCC">
+        <tr>
+          <td height="10"></td>
+        </tr>
+      </table>
+      <table width="700" height="60" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td align="center">Powered By <a href="http://www.60ie.net" target="_blank"><strong>夏日博客</strong></a> CopyRight 2012- 2014, <strong>夏日博客</strong> xhtml | css</br>
+            Processed in <strong>0.781250</strong> second(s) , <strong>4</strong> queries 版本:PHP生成静态页面小程序 v1.1 </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+/*页面全局*/
+body { font-family: "宋体"; font-size: 12pt; color: #000000; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;background-color: #B0ADAE;} 
+table { font-family: "宋体"; font-size: 9pt; line-height: 25px; color: #000000} 
+p { text-indent: 2em; } 
+a:link { font-size: 9pt; color: #2C2C2B; text-decoration: none} 
+a:visited { font-size: 9pt; color: #000000; text-decoration: none} 
+a:hover { font-size: 9pt; color: #FF0000; text-decoration: none} 
+a:active { font-size: 9pt; color: #FF0000; text-decoration: none} 
+/*全局结束*/
+
+/*标题下划线*/
+.line {
+	height: 32px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: dashed;
+	border-left-style: none;
+	border-top-color: #C0C0C0;
+	border-right-color: #C0C0C0;
+	border-bottom-color: #C0C0C0;
+	border-left-color: #C0C0C0;
+}
+/*下划线结束*/
+
+/*按钮样式*/
+a.menu:link { font-size: 9pt; color: #FFFFFF; text-decoration: none} 
+a.menu:visited { font-size: 9pt; color: #FFFFFF; text-decoration: none} 
+a.menu:hover { font-size: 9pt; color: #FFFFFF; text-decoration: underline} 
+a.menu:active { font-size: 9pt; color: #FFFFFF; text-decoration: none} 
+/*按钮样式结束*/
