@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>按数值大小排序</title>
+<script type="text/JavaScript">  	<!-- type属性也可省略 -->
+function compare(a,b) {  
+	return (b-a); 	    }//b-a是正数，表示逆序排列 
+var a1=new Array(6,4,23,3,5);
+alert(a1.sort(compare));  //输出23,5,4,3,1
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

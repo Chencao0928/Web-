@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>九九乘法表</title>
+
+
+
+</head>
+
+<body>
+<table cellpadding="6" cellspacing="0" style="border-collapse:collapse; border:none;">
+<script>
+for(var i=1;i<10;i++){			//乘法表一共九行
+	document.write("<tr>");		//每行是table的一行
+    for(j=1;j<10;j++)			//每行都有9个单元格
+		if(j<=i)				//有内容的单元格
+	       document.write("<td style='border:2px solid #004B8A; background: white;'>"+i+"*"+j+"="+(i*j)+"</td>");
+		else					//没有内容的单元格
+			document.write("<td style='border:none;'></td>");
+    document.write("</tr>");
+}
+</script>
+</table>
+
+
+</body>
+</html>

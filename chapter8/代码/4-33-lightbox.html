@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jquery的lightbox效果</title>
+<link rel="stylesheet" href="css/jquery.lightbox-0.5.css" />
+
+<style type="text/css">
+<!--
+body{margin:25px 20px}
+#lib {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#lib li {
+	float: left;
+	width:104px;
+	height:104px;
+	margin: 4px;
+}
+#lib img {
+	border: 1px solid #333333;
+	padding: 6px;
+	
+	background-color:#FFFFFF;
+		}
+
+-->
+</style>
+<script src="jquery.min.js"></script>
+<script src="js/jquery.lightbox-0.5.js"></script>
+
+<script>
+$(function() {
+	// Use this example, or...
+	
+	$('#lib a').lightBox(); // Select all links in object with gallery ID
+	// This, or...
+	
+});
+</script>
+
+</head>
+
+<body>
+
+<ul id="lib">
+<li><a href="images/pic1.jpg"><img src="images/pic1.jpg" width="90" height="90"/></a></li>
+<li><a href="images/pic2.jpg"><img src="images/pic2.jpg" width="90" height="90"/></a></li>
+<li><a href="images/pic3.jpg"><img src="images/pic3.jpg" width="90" height="90"/></a></li>
+<li><a href="images/pic4.jpg"><img src="images/pic4.jpg" width="90" height="90"/></a></li>
+</ul>
+</div>
+</body>
+</html>

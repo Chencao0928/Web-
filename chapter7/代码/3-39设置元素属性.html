@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>设置元素属性</title>
+
+<style type="text/css">
+#container ul {
+		margin:8px;	padding:0;	list-style:none; 	border:1px dashed red;}
+#container li {
+		font:24px/2 "黑体"; }
+</style>
+</head>
+
+<body>
+<div id="container"><img src="images/pic1.jpg" id="picbox" style="float:left;" />
+<ul><li onmouseover="changePic(1)">沙漠古堡</li>
+  <li onmouseover="changePic(2)">天山冰湖</li>
+  <li onmouseover="changePic(3)">自然村落</li></ul>
+</div>
+<script>
+function changePic(n){ 			//必须写在#picbox元素后面
+		var myImg = document.getElementById("picbox"); 	//获取img元素
+ 	myImg.src="images/pic"+n+".jpg";	}	//设置myImg的src属性为某个jpg文件
+</script>
+
+</body>
+</html>

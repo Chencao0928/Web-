@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>访问指定节点的子节点</title>
+</head>
+
+<body onload="init()">
+  <img src="images/01.jpg" alt="沙漠古堡" class="west"/>
+<script>
+  function init() {
+     var myImg = document.getElementsByTagName("img")[0]; 	//获取元素
+     alert(myImg.src);
+     alert(myImg.alt);		//等价于alert(myImg.getAttribute("alt"));
+     alert(myImg.className);		//输出“west”
+    }  
+</script>
+
+</body>
+
+
+</html>

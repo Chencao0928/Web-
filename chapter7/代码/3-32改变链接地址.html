@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>改变超链接的地址</title>
+</head>
+
+<body> 
+  <a href ="3-25时钟.html">会员可以下载 </a>
+   <script> 
+    member=true; 	//改成False再试试
+  if(member==true )	{	//如果是会员
+    document.links[0].href= "3-27打字机.html";	//转到下载页面
+            }
+     </script> 
+</body>
+
+</html>

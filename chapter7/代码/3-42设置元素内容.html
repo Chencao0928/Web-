@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>设置元素属性</title>
+<style>
+.bk{border:2px solid red; padding:5px;}
+</style>
+
+</head>
+
+<body>
+<form name="userInfo" method="post" action="">您有小孩吗？有：
+<input type="checkbox" name="hasBoy" id="hasBoy" value="1" onclick="check()" />
+  <span id="add">&nbsp;</span></form>
+<script>
+function check(){
+var hasboy=document.forms["userInfo"].hasBoy;
+var add=document.getElementById("add"); 	//去掉var后IE将出错
+if(hasboy.checked)
+	add.innerHTML="有几个<input type='text' name='textfield' />";
+else
+	add.innerHTML="";
+}
+</script>
+
+</body>
+</html>

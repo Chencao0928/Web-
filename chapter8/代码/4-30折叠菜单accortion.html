@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery折叠菜单</title>
+<style type="text/css">
+ul {
+	list-style:none;
+	margin:0;
+	padding:0;		/*以上三条为无序列表的通用设置*/
+}
+#accordion {
+	width:200px; 		/*设置折叠式菜单内容的宽度为200px*/
+}
+#accordion li {
+border-bottom:1px solid #ED9F9F;
+}
+#accordion a {
+	font-size: 14px;
+	color:#ffffff;
+	text-decoration: none;
+	display:block;						/* 区块显示 */
+	padding:5px 5px 5px 0.5em;
+	border-left:12px solid #711515;		/* 左边的粗暗红色边框 */
+	border-right:1px solid #711515;
+	background-color:#c11136;
+	height:1em; 				/* 此条为解决IE 6的bug*/
+}
+#accordion a:hover {
+	background-color:#990020;			/* 改变背景色 */
+	color:#ffff00; 				/* 改变文字颜色为黄色 */
+}
+#accordion li ul li {			/* 子菜单项的样式设置 */
+	border-top:1px solid #ED9F9F;
+}
+#accordion li ul li a{			/* 子菜单项的样式设置 */
+	padding:3px 3px 3px 0.5em;
+	border-left:28px solid #a71f1f;
+	border-right:1px solid #711515;
+	background-color:#e85070;
+}
+#accordion li ul li a:hover{		/* 改变子菜单项的背景色和前景色 */
+	background-color:#c2425d;
+	color:#ffff00;}
+</style>
+<script src="jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//页面载入时隐蔽除第一个元素外所有元素
+		$("#accordion > li > a + *:not(:first)").hide();
+		//对所有元素的标题绑定点击动作
+		$("#accordion > li > a").click(function(){
+			$(this).parent().parent().each(function(){
+				$("> li > a + *",this).slideUp();  //隐蔽所有元素
+			});
+			$("+ *",this).slideDown();  //展开当前点击的元素
+		});
+	});
+</script>
+
+</head>
+
+<body>
+<ul id="accordion">	
+		<li>
+			<a href="#">学 院 简 介</a>
+			<ul>
+				<li><a href="">学院概况</a></li>
+				<li><a href="">历史沿革</a></li>
+				<li><a href="">校训示意</a></li>
+				<li><a href="">现任领导</a></li>
+				<li><a href="">特色专业</a></li>
+				<li><a href="">校园漫步</a></li>
+				<li><a href="">学院宣传片</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">本 科 教 学</a>
+			<ul>
+				<li><a href="">专业介绍</a></li>
+				<li><a href="">精品课程</a></li>
+				<li><a href="">网络课堂</a></li>
+				<li><a href="">成绩查询</a></li>
+				<li><a href="">网上选课</a></li>
+				<li><a href="">教育技术</a></li>
+				<li><a href="">教学研究</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">科 学 研 究</a>
+			<ul>
+				<li><a href="">科技处</a></li>
+				<li><a href="">学术评价</a></li>
+				<li><a href="">学科建设</a></li>
+				<li><a href="">课题申报</a></li>
+				<li><a href="">学报编辑部</a></li>
+				<li><a href="">学术委员会</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">招 生 信 息</a>
+			<ul>
+				<li><a href="">本科招生</a></li>
+				<li><a href="">成教招生</a></li>
+				<li><a href="">独立学院招生</a></li>
+				<li><a href="">专升本招生</a></li>
+				<li><a href="">招生计划</a></li>
+				<li><a href="">就业指导</a></li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

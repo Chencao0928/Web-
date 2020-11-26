@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>打开新窗口</title>
+ <script>
+    function $(id) {		//根据元素id获取元素
+      return document.getElementById(id);    }
+      function dispTime() {
+      $("clock").innerHTML = "<b>"+(new Date()).toLocaleString()+"</b>"; }// 将时间加粗显示在clock的div中，new Date()获取系统时间，并转换为本地格式
+    function init() {		// 启动时钟显示
+      dispTime();						//显示时间
+      setTimeout(init, 1000);    // 过1秒钟后执行一次init()
+    }
+  </script>
+
+
+</head>
+<body onload="init()">
+    <div id="clock"></div>
+</body>
+
+</html>

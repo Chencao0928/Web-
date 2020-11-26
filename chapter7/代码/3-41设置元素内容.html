@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>设置元素属性</title>
+<style>
+.bk{border:2px solid red; padding:5px;}
+</style>
+
+</head>
+
+<body>
+<span id="a" onmouseover="change()"><b>把鼠标移过来，我会变</b></span>
+<script>
+function change(){
+var a=document.getElementById("a");
+alert(a.innerHTML) 	//读取元素中的HTML内容，输出“<B>把鼠标…</B>”
+a.innerHTML="看见变化了吗？";	//设置元素中的HTML内容
+}
+</script>
+
+</body>
+</html>

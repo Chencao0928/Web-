@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用超链接提交表单</title>
+<script>
+window.onload = function() 
+{   var ps = document.getElementsByTagName("p"); 
+    for (var p in ps)    { 
+           ps[p].onmouseover = function() 
+            {  this.style.textDecoration = "underline"    }; 
+            ps[p].onmouseout = function() 
+            {  this.style.textDecoration = "none"     }; 
+        }  };
+</script>
+
+
+</head>
+
+
+
+<body>
+	<p onmouseover="this.style.textDecoration='underline'" onmouseout= "this.style.textDecoration='none'">第一段</p>
+<p onmouseover="this.style.textDecoration='underline'" onmouseout= "this.style.textDecoration='none'">第二段</p>
+<p onmouseover="this.style.textDecoration='underline'" onmouseout= "this.style.textDecoration='none'">第三段</p>
+
+</body>
+
+</html>

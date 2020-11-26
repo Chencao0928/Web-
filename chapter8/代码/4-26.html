@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>show和hide方法</title>
+<style type="text/css">
+<!--
+h1 {
+	font-size: 18px;
+	background-color: #FF7389;
+	height: 32px;
+	width: 185px;
+	line-height:32px;
+	text-align:center;
+}
+h1,#pp {
+	width: 185px;
+	margin:0;}
+	#pp{font-size:14px;
+	background:#ffcccc}
+
+-->
+</style>
+<script src="jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("h1+p").hide();			//页面载入时隐藏p元素
+		$("h1").hover (function(){
+			$("+p",this).show(600); 	}, 	 //以动画效果显示p元素
+			function(){
+			$("+p",this).hide(600);		//鼠标离开h1时隐藏p元素
+		});	});
+</script>
+
+</head>
+
+<body>
+<h1>学院简介</h1>
+<p id="pp"> 衡阳师范学院是湖南省直属的一所普通全日制公办本科院校。学院前身可追溯到1904年的湖南官立南路师范学堂。1958年成立的衡阳师范专科学校是全国办学历史最悠久的师专之一。1999年3月经国家教育部批准，由原衡阳师范高等专科学校与原衡阳教育学院合并升格为衡阳师范学院。</p>
+
+
+<p> 该段落仅作对比，衡阳师范学院是湖南省直属的一所普通全日制公办本科院校。</p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>鼠标经过时自动选择表单中文本</title>
+<script>
+function myFocus(){
+	this.focus();
+}
+function mySelect(){
+	this.select();
+}
+window.onload = function(){
+	var elements = document.getElementsByTagName("input");
+	 for (var i = 0;i < elements.length;i++) {
+        var type = elements[i].type;
+        if (type == "text") {
+          elements[i].onmouseover =myFocus;
+		   elements[i].onfocus = mySelect;
+        }    } }
+</script>
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action=""><fieldset><legend>用户登录</legend>
+    <table width="232" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="92">用户名</td>
+        <td width="140"><input name="textfield" type="text" size="20" /></td>
+      </tr>
+      <tr>
+        <td>密码</td>
+        <td><input name="textfield2" type="text" size="20" /></td>
+      </tr>
+      <tr>
+        <td>密码提示问题</td>
+        <td><input type="text" name="textfield3" size="20"  /></td>
+      </tr>
+      <tr>
+        <td>答案</td>
+        <td><input type="text" name="textfield4" size="20"  /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="Submit" value="提交" /></td>
+      </tr>
+    </table>
+</fieldset>
+</form>
+</body>
+</html>

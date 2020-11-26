@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用$.each()方法遍历数组[1,2,3]</title>
+
+</head>
+
+<body>
+<script src="jquery.min.js"></script>		 <!--引入jQuery环境-->
+<script>
+function ShowChecked(oCheckBox){
+	$("input").css("backgroundColor","");
+	//使用:checked过滤出被用户选中的
+	$("input[name="+oCheckBox+"]:checked").css("backgroundColor","red");
+	var a=[];
+	$("select option:selected").each(function(){
+	a[a.length]=$(this).text();
+	});
+	$("b").text(a.join(","));	//将数组a中的每个元素连接成字符串
+}
+
+
+</script>
+爱好：<input type="radio" name="sports" id="football">足球<input type="radio" name="sports" id="basketball">篮球<input type="radio" name="sports" id="volleyball">排球<br>
+<input type="checkbox" name="sports" id="gofu">武术<br>
+<select name="select" size="3" multiple="multiple">
+  <option value="1">长沙</option><option value="2">湘潭</option>
+  <option value="3">衡阳</option>
+</select>		<b></b>
+<input type="button" value="显示选中项" onclick="ShowChecked('sports')" >
+
+</body>
+</html>

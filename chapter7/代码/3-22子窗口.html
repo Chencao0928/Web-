@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>子窗口</title>
+<script language="JavaScript" type="text/javascript">
+function search(){
+var parent = window.opener;
+      if (!parent) return;
+        // 从父窗口中获取id为title的文本框中输入的内容，把它填入子窗口相关位置
+    
+      $("title").value = parent.document.getElementById("title").value;
+}
+function $(id) {
+      return document.getElementById(id);
+    }
+</script>
+</head>
+
+<body onload="search()">
+<form action="" method="get">
+  <p>
+    <input name="liuyan" type="text" id="title" size="28" />
+  </p>
+  <p>
+    <input type="submit" name="Submit" value="提交" onclick="search()"/>
+</p>
+</form>
+
+
+</body>
+</html>

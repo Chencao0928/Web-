@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>动态插入删除表格行</title>
+
+</head>
+
+<body>
+<script src="jquery.min.js"></script>
+<script >
+$(function(){   
+	$("#start").click(function(){   //单击“在前面插入”按钮时
+ 		$("#make").prepend('<tr><td>前面插入的行</td><td><a href="javascript:;" onclick="del(this)">删除此行</a></td></tr>');     //插入新行
+	} ); 
+   $("#endp").click(function(){      //单击“在后面插入”按钮时
+	 $("#make").append('<tr><td>末尾插入的行</td><td><a href="javascript:;" onclick="del(this)">删除此行</a></td></tr>');     //插入新行
+	} ); 
+  } );  
+function del(obj)	{   //单击“删除此行”链接时
+		// a的父元素的父元素即tr元素，remove()方法用来删除元素
+		$(obj).parent().parent().remove();		}
+</script>  
+<table width="232" border="1" cellpadding="3" cellspacing="1" id="make">
+  <tr><td width="98">第一行</td>
+    <td><a href="javascript:;" onclick="del(this)">删除此行</a></td></tr>
+  <tr><td>第二行</td>
+    <td><a href="javascript:;" onclick="del(this)">删除此行</a></td></tr>
+  <tr><td>第三行</td>
+    <td><a href="javascript:;" onclick="del(this)">删除此行</a></td></tr>
+</table>
+<input type="button" id="start" value="在前面插入行"/> 
+<input type="button" id="endp" value="在末尾插入行"/>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery 版元素拖拽原型</title>
+<script src="jquery.min.js"></script>
+<script>
+	$(function(){		
+		bindDrag($("#test")[0]);		//绑定拖动元素对象，并转换为DOM元素
+	});
+	function bindDrag(el){		//初始化参数，el对应$("#test")[0]，是DOM元素
+		var els = el.style,			//鼠标的 X 和 Y 轴坐标
+			x = y = 0;
+		$(el).mousedown(function(e){		//按下元素后，计算当前鼠标位置
+			x = e.pageX - el.offsetLeft; 		//鼠标相对于当前元素左边缘的位置
+			y = e.pageY - el.offsetTop;
+			el.setCapture && el.setCapture();		//IE下捕捉焦点
+		$(document).bind('mousemove',mouseMove).bind('mouseup',mouseUp);//绑定事件
+		});
+	function mouseMove(e){				//移动事件
+			els.left = e.pageX - x + 'px'; 		//鼠标相对于文档左边缘的位置-相对于元素左边缘的位置，得到元素相对于文档左边缘的位置
+			els.top = e.pageY - y + 'px';
+		}
+	function mouseUp(){		//停止事件
+		el.releaseCapture && el.releaseCapture();		//IE下释放焦点
+		$(document).unbind('mousemove',mouseMove).unbind('mouseup',mouseUp);//卸载事件
+		}	}
+</script>
+<style type="text/css">
+#test{
+	position:absolute;top:0;left:0;
+	width:160px;height:80px;background:#ccc; 
+	text-align:center;	line-height:100px;
+}
+</style>
+</head>
+
+<body>
+	<div id="test">可以拖动的div</div>
+</body>
+</html>

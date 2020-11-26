@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>父子窗口交互－父窗口</title>
+
+
+  <script type="text/javascript">
+  	// 全局变量，检索条件输入窗口
+    var win;
+    
+    // 打开检索条件输入窗口
+    function search() {
+      // 设置窗口的位置，使它位于屏幕的中央
+      win = window.open("7-4-20子窗口.html", "win", "height=200px,width=300px,left=" + 
+        (screen.availWidth/2 - 150) + ",top=" + (screen.availHeight/2 - 100));
+    }
+   </script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <h3>请在此留言</h3>
+  <p>
+    <input name="liuyan" type="text" id="title"  size="28" />
+</p>
+  <p>
+    <input type="button"  onclick="search()" value="在新窗口书写留言" /> <input type="button" value="关闭新窗口" onclick="win.close()" />
+  </p>
+  <p>点击前请先在文本框输入一些内容</p>
+</form>
+</body>
+</html>

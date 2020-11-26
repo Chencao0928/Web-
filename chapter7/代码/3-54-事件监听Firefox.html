@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Firefox事件监听（只能在Firefox中运行）</title>
+<script>
+function fnClick1(){
+	alert("我被fnClick1监听了");
+	oP.removeEventListener("click",fnClick1, false);	}	//删除监听函数1
+function fnClick2(){
+	alert("我被fnClick2监听了");	}
+var oP;
+window.onload = function(){
+	oP = document.getElementById("myP");	//找到对象
+	oP.addEventListener("click",fnClick1, false);		//添加监听函数1
+	oP.addEventListener("click",fnClick2, false);	}	//添加监听函数2	
+</script>
+
+
+</head>
+
+
+
+<body>
+	<p id="myP">Click Me</p>
+</body>
+
+</html>

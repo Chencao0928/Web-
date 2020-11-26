@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>利用onBlur事件自动校验表单</title>
+
+<script>
+
+function myFocus(){
+	this.style.backgroundColor="#ffdddd";
+}
+function myBlur(){
+	this.style.backgroundColor="#ffffff";
+	startCheck(this);		//这一句是新增的验证表单的代码
+	}
+function startCheck(oInput){
+	if(oInput.name=="User"){		//如果是用户名的输入框
+		if(!oInput.value){		//如果值不为空
+		oInput.focus();		//聚焦到用户名的输入框
+		document.getElementById("UserResult").innerHTML = "用户名不能为空";
+		return;}
+		else
+		document.getElementById("UserResult").innerHTML = "";
+		}
+		if(oInput.name=="passwd2"){
+		if(document.getElementsByName("passwd1")[0].value!= document.getElementsByName("passwd2")[0].value)		//如果两个密码框值不相等
+document.getElementById("pwdResult").innerHTML = "两次输入的密码不一致";
+		else
+		document.getElementById("pwdResult").innerHTML = "";}
+}
+
+window.onload = function(){
+	var elements = document.getElementsByTagName("input");
+	 for (var i = 0;i < elements.length;i++) {
+        var type = elements[i].type;
+       if (type == "text" || type == "password") {
+          elements[i].onfocus = myFocus;
+		   elements[i].onblur =myBlur;
+        } } }
+
+</script>
+
+<style type="text/css">
+<!--
+input {
+	border: 1px solid #0066CC;
+}
+form {
+	font-size: 12px;
+}
+-->
+</style>
+</head>
+
+<body>
+<form name="register">
+<table cellpadding="5" cellspacing="0" border="0">
+	<tr><td>用户名:</td><td><input type="text" name="User"></td> <td><span id="UserResult"></span></td> </tr>
+	<tr><td>输入密码:</td><td><input type="password" name="passwd1"></td> <td></td></tr>
+    <tr><td>确认密码:</td><td><input type="password" name="passwd2"></td> <td> <span id="pwdResult"></span></td> </tr>
+	<tr><td colspan="2" align="center">
+		<input type="submit" value="注册"> <input type="reset" value="重置">
+		</td> <td></td></tr>
+</table>
+</form>
+
+</body>
+</html>

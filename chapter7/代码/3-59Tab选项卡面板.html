@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>tab选项卡面板</title>
+<style type="text/css">
+<!--
+#tab {
+	margin: 0; 		/*通用设置，将列表的边界设为0*/
+	padding: 0 0 24px; 	/*由于li元素浮动，#tab高度为0，用填充扩展高度*/
+	list-style-type: none; 		/*去掉列表元素列表项前的小黑点*/
+	border-bottom:1px solid #11a3ff; 		/*给ul元素添加下边框*/	}
+#tab a {
+	float:left;
+	padding: 0 10px; 		/*给a元素左右加10像素填充 */
+	height:23px; 		/* a的高度正好等于#tab高度，从而它们的下边框重合 */			line-height:23px; 		/*以上两条使a元素文字垂直居中 */
+	border: 1px solid #11a3ff;
+	font-size: 14px;	color: #930;	text-decoration: none;
+	background-color: #BDF;	}
+
+
+#tab li {
+	float:left; 		/*使tab项水平排列 */
+margin:0 4px 0 0; 		/*设置右边界，使tab项之间有间距 */}
+div {
+	background: #fee;
+	padding: 10px;
+	border:1px solid #11a3ff;		/* 添加边框 */
+	border-top:none;			/*去掉上边框 */}
+#info2,#info3 {
+display:none;
+	
+}
+#tab a:hover,#tab a.cur {
+	border-bottom: 1px solid #fee; 	/*鼠标滑过或是当前选项时改变下划线颜色 */
+	color: #F74533; 		/*改变tab项的文字颜色 */
+	background-color: #fee; 		/*改变tab项的背景颜色 */}
+
+-->
+</style>
+<script>
+function changtab(n){
+for(i=1;i<= document.getElementById("tab").getElementsByTagName("li").length;i++){
+	document.getElementById('info'+i).style.display='none';	//将所有面板隐藏
+document.getElementById('tab'+i).className='';	
+}
+document.getElementById('info'+n).style.display='block';	//显示当前面板
+document.getElementById('tab'+n).className='cur';	}
+</script>
+
+
+</head>
+
+<body>
+<ul id="tab">
+<li><a id="tab1" onmouseover="changtab(1)" class="cur" href="#">课程特色</a></li>
+<li><a id="tab2" onmouseover="changtab(2)" href="#">教学方法</a></li>
+<li><a id="tab3" onmouseover="changtab(3)" href="#">教学效果</a></li>
+</ul>
+<div id="info1">
+·<a href="#">本课程主要特色</a>&nbsp;<BR>
+      ·<a href="#">课程地位</a>&nbsp;&nbsp;<BR>
+      ·<a href="htm">目前还存在的不足</a><BR />
+      &nbsp;
+</div>
+<div id="info2">
+·<a href="zwpj-1.htm">教学方法和教学手段</a>&nbsp;<BR>
+      ·<a href="zwpj-2.htm">课程的历史</a>&nbsp;&nbsp;<BR>
+      ·<a href="zwpj-3.htm">目前还存在的优势</a><BR />
+      &nbsp;
+</div>
+<div id="info3">
+·<a href="zwpj-1.htm">教学效果评价</a>&nbsp;<BR>
+      ·<a href="zwpj-2.htm">学生评价</a>&nbsp;&nbsp;<BR>
+      ·<a href="zwpj-3.htm">同行评价</a><BR />
+      &nbsp;
+</div>
+</body>
+</html>

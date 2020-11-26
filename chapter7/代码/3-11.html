@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>While 循环</title>
+<script>
+var aNumbers = new Array();
+var sMessage = "你输入了:\n";
+var iTotal = 0, i = 0, userInput;
+do{
+	userInput = prompt("输入一个数字，或者'0'退出","0");
+	
+	if(isNaN(userInput)){
+		document.write("输入错误，请重新输入<br>");
+		continue;		}	//输入错误则退出当前循环，但继续下一次循环
+
+	aNumbers[i] = userInput;
+	i++;
+	iTotal += Number(userInput);
+	sMessage += userInput + "\n";
+}while(userInput != 0)		//当输入为0（默认值）时则退出循环体
+
+sMessage += "总数:" + iTotal;
+alert(sMessage);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

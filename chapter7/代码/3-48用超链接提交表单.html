@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用超链接提交表单</title>
+
+</head>
+
+<body>
+
+<script> 
+   function checkvalue() {
+     if (document.welcome.username.value == "" )
+       { alert( " 用户名不能为空！ " );
+        return ( false );     } 
+     document.welcome.submit(); 
+    return ( true );    } 
+  </script> 
+<form name = "welcome"  method = "post"  action = "" > 
+      <input type="text" name="username" />
+      <input type="text" name="password"/>
+      <a href = "#" onclick = "javascript:checkvalue();return false" >登 录</a> 
+  </form>
+
+</body>
+</html>

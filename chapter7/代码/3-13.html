@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>模拟函数的多态</title>
+
+<script>
+function fnAdd(){
+	if(arguments.length == 0)
+		return;
+	else if(arguments.length == 1)
+		return arguments[0] + 6;
+	else{	var iSum = 0;
+		for(var i=0;i<arguments.length;i++)
+			iSum += arguments[i];
+		return iSum;	}}
+document.write(fnAdd(44) + "<br>");				//输出结果为50
+document.write(fnAdd(45,50) + "<br>");			//输出结果为95
+document.write(fnAdd(45,50,55,70) + "<br>");		//输出结果为220
+</script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

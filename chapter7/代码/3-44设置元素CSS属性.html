@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>设置元素属性</title>
+<style>
+#container #picbox {width:150px;		height:150px;		float:left;
+					background:url(images/pic1.jpg) no-repeat;	}
+#container ul {
+		margin:8px;	padding:0;	list-style:none; 	border:1px dashed red;}
+#container li {
+		font:24px/2 "黑体"; }					
+</style>
+
+</head>
+
+<body>
+
+<div id="container">
+		<div id="picbox"></div>			<!--用div放置供切换的背景图像-->
+		<ul><li onmouseover="changePic(1)">沙漠古堡</li>
+  		<li onmouseover="changePic(2)">天山冰湖</li>  
+  		<li onmouseover="changePic(3)">自然村落</li>
+		</ul></div>
+<script>
+function changePic(str){
+	var myImg = document.getElementById("picbox"); 		//获取图像元素
+	myImg.style.backgroundImage="url(images/pic"+str+".jpg)"; }	//设置CSS背景属性
+</script>
+
+
+</body>
+</html>

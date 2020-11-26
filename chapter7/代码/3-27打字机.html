@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>打字机效果</title>
+
+</head>
+
+<body onLoad="setInterval(trim, 100)">
+<p id="exp"></p>
+<script>
+var exp=document.getElementById("exp");
+var str="函数就像是一台机器，它对输入的数据进行加工再输出需要的数据";
+y=1;
+function trim(){					//用来定时执行的函数
+	var trimstr=str.substring(0,y); 	//截取从0到y的子字符串
+	exp.innerHTML=trimstr;	
+	if(y<str.length) y++;
+	else clearInterval(setInterval(trim, 100));}
+</script>
+</body>
+</html>

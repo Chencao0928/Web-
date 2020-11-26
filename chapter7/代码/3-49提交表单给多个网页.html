@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用超链接提交表单</title>
+
+</head>
+
+<body>
+<script> 
+function search()	{
+var form1=document.forms["searchForm"];		//获取表单
+var skeyword=form1.elements["skeyword"];		//获取表单中的元素
+var keyword=form1.elements["keyword"];
+var title=form1.elements["title"];
+skeyword.value=keyword.value; 	//设置两个隐藏域的值为文本框中输入的值
+title.value=keyword.value;
+form1.action = "http://www.waterpub.com.cn/Softdown/Search.asp"; 
+form1.target="af";
+form1.submit();	//将表单提交给第1个网页
+form1.action = "http://www.cmpedu.com/scrp/book.cfm"; 
+form1.target="bf";		//第1个网页将在名为bf的iframe框架中打开
+form1.submit();	//将表单提交给第2个网页
+form1.action = "http://www.dufep.cn/down_search.asp"; 
+form1.target="cf";
+form1.submit();}	//将表单提交给第3个网页
+</script>
+<form action="" method="post" name="searchForm" >教材名称： 
+    <input type="text" name="keyword"/>
+	   <input type="hidden" name="skeyword"/>
+	   <input type="hidden" name="title"/>
+    <input type="submit" value="提交" onclick="search()"/>
+</form>
+<iframe src="" width="980" height="300" name="af"></iframe>
+<iframe src="" width="980" height="300" name="bf"></iframe>
+<iframe src="" width="980" height="300" name="cf"></iframe>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用slice()方法实现表格分页</title>
+
+</head>
+
+<body>
+<script src="jquery.min.js"></script>		 <!--引入jQuery环境-->
+<style>	.clickable{color:red;}
+.active{ background:red;color:white;}	
+</style>
+<script>
+$(function(){  			//④ 启用分页按钮的最终方案
+var cur=1;				//页面加载时显示第1页
+var pagesize=3;		//每页显示的行数
+$("table").bind('renewpage', function()	{	//为表格元素绑定renewpage函数
+		$("table").find('tbody tr').hide()
+		.slice((cur-1)*pagesize+1,cur*pagesize+1).show();	//显示当前页的所有行
+		$("table").find('tr:has(th)').show();
+});			// bind方法结束
+var trcount=$("table").find('tbody tr').length; 		// 显示分页页码的代码开始
+var pagecount=Math.ceil(trcount/pagesize);
+var $pager=$('<div class="pager"></div>');
+for (var page=0;page<pagecount; page++){
+		//发送被单击的页码的值newPage给事件对象event
+	$(' <b> '+(page+1)+' </b> ').bind('click', {'newPage': page+1}, function(event) {
+		cur = event.data['newPage']; 			//让当前页等于newPage的值
+    $("table").trigger('renewpage'); 		//触发执行renewpage函数
+    $(this).addClass('active').siblings().removeClass('active');
+		}).appendTo($pager).addClass('clickable');
+}
+$pager.insertBefore($("table"));
+ $("table").trigger('renewpage');		//页面载入时也执行renewpage函数
+})
+</script>
+
+<table width="200" border="1" cellspacing="0" cellpadding="0">
+<tr>
+    <th>姓名</th>
+    <th>手机号</th>
+  </tr>
+  <tbody><tr>
+    <td>1</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>&nbsp;</td>
+  </tr></tbody>
+</table>
+
+</body>
+</html>

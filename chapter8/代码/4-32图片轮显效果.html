@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>jQuery图片轮显效果</title>
+<script src="jquery.min.js"></script> 
+<script>
+	$(function(){	
+		$(".clickButton a").attr("href","#");
+		$(".clickButton a").each(function(index){			
+			$(this).click(function(){
+				changeImage(this,index);	
+			});			
+		});	
+		autoChangeImage();		
+	});
+
+	function autoChangeImage(){
+		for(var i = 0; i<=10000;i++){
+			setTimeout("clickButton("+(i%5+1)+")",i*1000);			
+		}
+	}
+
+	function clickButton(index){
+		$(".clickButton a:nth-child("+index+")").click();
+	}
+
+	function changeImage(element,index){
+		var arryImgs = ["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg"];
+		$(".clickButton a").removeClass("active");
+		$(element).addClass("active");
+		$(".imgs img").attr("src",arryImgs[index]);
+	}
+</script>
+<style type="text/css">
+<!--
+img{border:0px;}
+.imgsBox{overflow:hidden;width:282px;height:176px;}
+.imgs a{display:block;width:282px;height:164px;}
+.clickButton{background-color:#888888;width:282px;height:12px;position:relative;top:-1px;_top:-5px;}
+.clickButton div{float:right;}
+.clickButton a{background-color:#666;border-left:#ccc 1px solid;line-height:12px;height:12px;font-size:10px;float:left;padding:0 7px;text-decoration:none;color:#fff;}
+.clickButton a.active,.clickButton a:hover{background-color:#d34600;}
+-->
+</style>
+</head>
+<body>
+<div class="imgsBox">
+	<div class="imgs">
+
+		<a href="#">
+			<img id="pic" src="images/01.jpg" width="282" height="164" />
+		</a>
+	</div>
+	<div class="clickButton">
+		<div>
+			<a class="active" href="">1</a>
+			<a class="" href="">2</a>
+
+			<a class="" href="">3</a>
+			<a class="" href="">4</a>
+			<a class="" href="">5</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

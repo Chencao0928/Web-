@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>具有隔行和动态变色功能的表格</title>
+<style>
+<!--
+.datalist{
+	border:1px solid #0058a3;	/* 表格边框 */
+	border-collapse:collapse;	/* 边框重叠 */
+	background-color:#eaf5ff;	/* 表格背景色 */
+	font-size:14px;
+}
+
+.datalist th{
+	background-color:#4bacff;	/* 行名称背景色 */
+	color:#FFFFFF;				/* 行名称颜色 */
+
+
+}
+.datalist th,.datalist td{
+	border:1px solid #0058a3;	/* 单元格边框 */
+	padding:4px 12px;
+}
+.datalist tr.altrow{
+	background-color:#a5e5aa;	/* 隔行变色 */
+}
+.datalist tr:hover, .datalist tr.overrow{
+	background-color:#2DA0FF;	/* 动态变色 */
+	color: #FFFFFF;	
+}
+-->
+</style>
+<script language="javascript">
+window.onload = function(){
+	var oTable = document.getElementById("datalist");
+	for(var i=0;i<oTable.rows.length;i++){
+		if(i%2==0)		//偶数行时
+			oTable.rows[i].className = "altrow";//
+				}
+
+var rows = document.getElementsByTagName('tr');
+for (var i=0;i<rows.length;i++){
+	rows[i].onmouseover = function(){		//鼠标在行上面的时候
+		this.className +=' overrow';
+	}
+	rows[i].onmouseout = function(){		//鼠标离开时
+		this.className = this.className.replace(/overrow/,'');
+	}
+}}
+</script>
+
+</head>
+
+<body>
+<table class="datalist" id="datalist">
+	<tr>
+		<th>Name</th>
+		<th>Class</th>
+		<th>Birthday</th>
+		<th>Constellation</th>
+		<th>Mobile</th>
+	</tr>
+	
+	<tr>
+		<td>girlwing</td>
+		<td>W210</td>
+		<td>Sep 16th</td>
+		<td>Virgo</td>
+		<td>1307994</td>
+	</tr>
+	<tr>
+		<td>tastestory</td>
+		<td>W15</td>
+		<td>Nov 29th</td>
+		<td>Sagittarius</td>
+		<td>1095245</td>
+	</tr>
+	<tr>
+		<td>lovehate</td>
+		<td>W47</td>
+		<td>Sep 5th</td>
+		<td>Virgo</td>
+		<td>6098017</td>
+	</tr>
+	<tr>
+		<td>sixtang</td>
+		<td>W19</td>
+		<td>Nov 18th</td>
+		<td>Scorpio</td>
+		<td>0658635</td>
+	</tr>
+	<tr>
+		<td>smartlau</td>
+		<td>W19</td>
+		<td>Dec 30th</td>
+		<td>Capricorn</td>
+		<td>0006621</td>
+	</tr>
+	<tr>
+		<td>whaler</td>
+		<td>W19</td>
+		<td>Jan 18th</td>
+		<td>Capricorn</td>
+		<td>1851918</td>
+	</tr>
+	<tr>
+		<td>shenhuanyan</td>
+		<td>W25</td>
+		<td>Jan 31th</td>
+		<td>Aquarius</td>
+		<td>0621827</td>
+	</tr>
+	<tr>
+		<td>tuonene</td>
+		<td>W210</td>
+		<td>Nov 26th</td>
+		<td>Sagittarius</td>
+		<td>0091704</td>
+	</tr>
+	<tr>
+		<td>ArthurRivers</td>
+		<td>W91</td>
+		<td>Feb 26th</td>
+		<td>Pisces</td>
+		<td>0468357</td>
+	</tr>
+	<tr>
+		<td>reconzansp</td>
+		<td>W09</td>
+		<td>Oct 13th</td>
+		<td>Libra</td>
+		<td>3643041</td>
+	</tr>
+	<tr>
+		<td>linear</td>
+		<td>W86</td>
+		<td>Aug 18th</td>
+		<td>Leo</td>
+		<td>6398341</td>
+	</tr>
+	<tr>
+		<td>laopiao</td>
+		<td>W41</td>
+		<td>May 17th</td>
+		<td>Taurus</td>
+		<td>1254004</td>
+	</tr>
+	
+	<tr>
+		<td>lightyear</td>
+		<td>W311</td>
+		<td>Mar 23th</td>
+		<td>Aries</td>
+		<td>1002908</td>
+	</tr>
+</table>
+<script language="javascript">
+
+</script>
+
+</body>
+</html>

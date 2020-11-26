@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>事件对象的属性</title>
+
+</head>
+
+<body>
+<script src="jquery.min.js"></script>		 <!--引入jQuery环境-->
+<style>
+.entered{font-size:36px;}
+#test{
+border:2px solid red;background:#fdd;width:160px;height:160px;
+}
+
+</style>
+<script>
+$(function(){				//绑定多个事件
+	$("#test").bind("mouseenter mouseout", function(event){ 	// event为事件对象
+	$(this).toggleClass("entered");
+	alert("鼠标指针位于（"+event.pageX+" , "+event.pageY+"）");
+});
+
+	$(document).click(function(){
+		$("#test").unbind('mouseenter mouseleave'); 	//在页面上单击时就取消绑定
+	});
+})
+
+</script>
+
+<div id="test">移进来！ </div>
+</body>
+</html>

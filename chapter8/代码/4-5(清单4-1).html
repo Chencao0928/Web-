@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用$.each()方法遍历数组[1,2,3]</title>
+
+</head>
+
+<body>
+<script src="jquery.min.js"></script>		 <!--引入jQuery环境-->
+<script>
+$(function(){  		//$(document).ready(function(){的简写形式
+$("p").click(function(){alert($(this).html())})	//设置click事件的处理函数
+.mouseover(function(){$(this).append('mouse over event')}) 	//设置mouseover事件的处理函数
+.text($("p").eq(0).text()+"好啊")		//设置元素中的文本内容
+.each(function(i){this.style.color=['#f00','#0f0','#00f'][ i ] 	//设置前3个元素的颜色
+});
+})
+</script>
+<p id="jp">移进来！</p><p id="jp2">移进来！</p><p>移进来！</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>键盘事件对象应用举例</title>
+<script language="JavaScript" type="text/javascript">
+function IsDigit()
+{
+  return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+</script>
+</head>
+
+<body>
+<form action="" method="post" name="ti">利用键盘事件对象检测输入的是否是数字
+  <br /><br />
+
+请输入手机号码：<input type="text" name="textfield"  onkeypress="event.returnValue=IsDigit();"/>
+</form>
+</body>
+</html>

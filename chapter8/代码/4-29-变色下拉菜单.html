@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<title>下拉菜单－添加交互 </title> 
+<script src="jquery.min.js"></script> 
+<style type="text/css"> 
+#nav ul,#nav {                /*问题1，此处改为#nav效果不同*/ 
+padding: 0; 
+margin: 0; 
+list-style: none; 
+} 
+
+li { 
+float: left; 
+width: 160px; 
+
+position:relative; 
+
+} 
+
+li ul {              /*问题2，此处不能改为#nav ul*/ 
+display: none; 
+position: absolute; 
+top: 22px; 
+
+} 
+
+ul li a{ 
+display:block; 
+font-size:12px; 
+border: 1px solid #ccc; 
+padding:3px; 
+text-decoration: none; 
+color: #333; 
+height:1em;
+
+} 
+ul li a:hover{ 
+background-color:#f4f4f4; 
+} 
+#sdsa { 
+clear: both; 
+} 
+</style> 
+<script> 
+$(document).ready(function(){ 
+    $("#nav>li").hover(
+        function(){ 
+            $(this).children("ul").show("slow"); 
+            $(this).find("img").attr("src","minus.gif"); 
+        },function(){ 
+            $(this).children("ul").slideUp(400); 
+              $(this).find("img").attr("src","plus.gif"); 
+        }
+    ); 
+    
+  $("#nav>li ul").each(function(){ 
+        $(this).find("li").each(function(i){
+            $(this).css("background-color","rgb("+(320-i*16)+","+(240-i*16)+","+(240-i*16)+")"); 
+        });
+    }); 
+
+
+}); 
+</script> 
+
+</head> 
+
+<body> 
+<ul id="nav"> 
+  <li> <a href=""> <img src="plus.gif" border="0"  align="absmiddle"/> 文 章 </a> 
+    <ul> 
+      <li> <a href="">Ajax教程 </a> </li> 
+        <li> <a href="">SAML教程 </a> </li> 
+      <li> <a href="">RIA教程 </a> </li> 
+      <li> <a href="">Flex教程 </a> </li> 
+    </ul> 
+  </li> 
+
+  <li> <a href=""> <img src="plus.gif"  border="0"  align="absmiddle" /> 参 考 </a> 
+    <ul> 
+      <li> <a href="">E-cash </a> </li> 
+      <li> <a href="">微支付 </a> </li> 
+      <li> <a href="">混沌加密 </a> </li> 
+    </ul> 
+  </li> 
+
+  <li> <a href=""> <img src="plus.gif"  border="0"  align="absmiddle" /> Blog </a> 
+    <ul> 
+      <li> <a href="">生活随想 </a> </li> 
+      <li> <a href="">灯下随笔 </a> </li> 
+      <li> <a href="">心路历程 </a> </li> 
+      <li> <a href="">随意写 </a> </li> 
+    </ul> 
+  </li> 
+</ul> 
+
+
+<div id="sdsa">这是菜单下面的内容 </div> 
+</body> 
+</html>
+

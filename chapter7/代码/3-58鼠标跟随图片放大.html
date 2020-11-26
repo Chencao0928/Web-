@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>鼠标跟随图片放大</title>
+<style>
+
+#demo img{width:90px;height:90px;border:5px solid #f4f4f4}
+#enlarge_img{position:absolute;display:none;z-index:2;border:5px solid #f4f4f4}
+</style>
+
+
+
+
+</head>
+
+<body>
+<div id="demo">
+	<img src="images/pic1.jpg" />
+	<img src="images/pic2.jpg" />
+	<img src="images/pic3.jpg" />
+
+	</div>
+<div id="enlarge_img"></div>
+<script>
+var demo = document.getElementById("demo");
+var gg = demo.getElementsByTagName("img");
+var ei = document.getElementById("enlarge_img");
+for(i=0; i<gg.length; i++){
+	var ts = gg[i];
+	ts.onmousemove = function(event){
+		event = event || window.event;
+		ei.style.display = "block";
+		ei.innerHTML = '<img src="' + this.src + '" />';
+		ei.style.top  = document.body.scrollTop + event.clientY + 10 + "px";
+		ei.style.left = document.body.scrollLeft + event.clientX + 10 + "px";
+	}
+	ts.onmouseout = function(){
+		ei.innerHTML = "";
+		ei.style.display = "none";
+	}
+	ts.onclick = function(){
+		window.open( this.src );
+	}
+}
+</script>
+</body>
+</html>

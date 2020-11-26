@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>设置元素属性</title>
+<style>
+.bk{border:2px solid red; padding:5px;}
+</style>
+
+</head>
+
+<body>
+<p id="test" onclick="$()" style="font-size:14px; color:#000;">内容</p>
+<script>
+function $(){
+var test=document.getElementById("test");
+alert (test.style.fontSize); 	 	//访问CSS属性font-size，输出14px
+test.style.color="#f00";			//修改CSS属性color
+alert (test.style.color);			//访问CSS属性color，IE中输出#f00
+}
+</script>
+
+
+</body>
+</html>

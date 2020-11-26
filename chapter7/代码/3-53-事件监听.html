@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用超链接提交表单</title>
+<script>
+function fnClick1(){
+	alert("我被点击了");
+	oP.detachEvent("onclick",fnClick1);	}	//点击了一次后删除监听函数
+function fnClick2(){
+	alert("我的内容是"+myP.innerHTML);}
+window.onload = function(){
+	oP = document.getElementById("myP");	//找到对象
+	oP.attachEvent("onclick",fnClick1);		//添加监听函数
+oP.attachEvent("onclick",fnClick2);	}
+</script>
+
+
+</head>
+
+
+
+<body>
+	<p id="myP">Click Me</p>
+</body>
+
+</html>

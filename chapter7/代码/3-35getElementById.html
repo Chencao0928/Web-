@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>自动满屏显示</title>
+
+
+</head>
+<body onclick="searchDOM()">
+<ul><li id="wuli">统计物理</li></ul>
+<script>
+function searchDOM(){
+	var wuli = document.getElementById("wuli");		//产生一个DOM对象wuli
+	alert(wuli.tagName + " " + wuli.childNodes[0].nodeValue); }
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>追加元素class属性</title>
+<style type="text/css">
+.test{	width: 160px;	 border: 1px solid #ccc; }
+li ul { display: none;	}
+li.over ul { display: block;}
+</style>
+</head>
+
+<body>
+
+<ul id="nav">
+  <li class="test" onclick="toggle(this)"><a href="#">文 章</a>
+    <ul><li><a href="#">Ajax教程</a></li>
+      <li><a href="#">Flex教程</a></li></ul>
+	  </li></ul>
+<script>
+function toggle(obj){
+	if (obj.className.indexOf("over")==-1) 	//如果类名中没有“over”
+		obj.className+=" over";	//追加类名“over”
+	else	obj.className=obj.className.replace(/over/,"");	}	//去除类名“over”
+	</script>
+
+</body>
+</html>

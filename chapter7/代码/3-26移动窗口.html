@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>打开新窗口</title>
+<script>
+function init() {
+	 window.moveTo(10,10);
+	 window.resizeTo(300,200);}
+function move() {
+     window.moveBy(10,10);		//每次向右下移动10px
+	  window.resizeBy(10,10);	}	// 每次变大10px
+  </script>
+</head>
+<body onLoad="init()">
+<b onClick="setInterval(move, 100);">单击这里，窗口移动</b>
+</body>
+
+
+</html>

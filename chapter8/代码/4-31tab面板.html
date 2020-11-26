@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery Tab面板</title>
+<style>
+#tab{ margin:0px; 
+padding:0 0 31px; 
+list-style:none; 
+border-bottom:1px solid #11a3ff;
+} 
+li { float:left; 
+background-color:#BBDDFF; 
+margin-right:4px; 
+padding:5px; 
+border:1px solid #11a3ff; 
+height:20px; 
+} 
+.cur { background-color: #ffeeee;
+border-bottom:1px solid  #ffeeee;
+color:red;
+
+} 
+div { clear:left;
+padding:10px;
+/*height:100px; */
+background-color:#FFeeee; 
+border:1px solid #11a3ff;		/* 左边框 */
+border-top:none;
+display:none; 
+} 
+.divcur { display:block; } 
+
+</style>
+<script src="jquery.min.js"></script> 
+<script>
+//定义全局变量 
+var timeout; 
+$(document).ready(function(){ 
+//找到所有的li标签 
+//$("#tab li").html(function(index,html){
+//return "<a href='#'>这是第"+(index+1)+"个Tab项</a>";
+//});
+
+	$("#tab li").each(function(index){ 
+		$(this).mouseover(function(){ 
+			$("div.divcur").removeClass("divcur"); 
+			$("li.cur").removeClass("cur"); 
+// $("div").eq(index).addClass("divcur"); //另一种写法是:$(div:eq(index)).addClass("divcur"); 
+			$("div:eq("+index+")").addClass("divcur"); 
+			$("li").eq(index).addClass("cur"); 
+		}); 
+	}); 
+
+
+}); 
+</script> 
+
+</head>
+
+<body>
+
+<ul id="tab"> 
+<li class="cur">课程特色</li> 
+<li >教学方法</li> 
+<li >教学效果</li> 
+</ul> 
+<div class="divcur">·<a href="#">本课程主要特色</a>&nbsp;<br />
+      ·<a href="#">课程地位</a>&nbsp;&nbsp;<br />
+      ·<a href="htm">目前还存在的不足</a></div> 
+<div>·<a href="zwpj-1.htm">教学方法和教学手段</a>&nbsp;<br />
+      ·<a href="zwpj-2.htm">课程的历史</a>&nbsp;&nbsp;<br />
+      ·<a href="zwpj-3.htm">目前还存在的优势</a></div> 
+<div>内容3<br />
+教学效果非常好</div> 
+
+</body>
+</html>

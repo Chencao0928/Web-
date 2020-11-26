@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>设置元素属性</title>
+<style>
+.bk{border:2px solid red; padding:5px;}
+</style>
+
+</head>
+
+<body>
+<img src="images/pic1.jpg" title="沙漠古堡" onclick="changePic()" width="200" class="bk" />
+<script>
+function changePic(){
+	var myImg = document.getElementsByTagName("img")[0]; //获取图片
+	myImg.title="";	//删除title属性
+	myImg.className="";	//删除class属性
+	myImg.removeAttribute("width");		//删除width属性
+}</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>this的用法3</title>
+<script>
+stat=function(){
+var taoId=document.getElementById('div2');
+taoId.onmouseover=function(){
+this.align="right";}		//this指代taoId
+taoId.onmouseout=function(){
+this.align="left";		}}
+window.onload=stat;
+</script>
+
+
+</head>
+<body>
+<div id="div2">会逃跑的文字</div>
+
+</body>
+</html>

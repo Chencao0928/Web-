@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jquery放大镜插件</title>
+<script src="jquery.min.js"></script>
+<script src="js/jquery.jqzoom.js"></script>
+
+<link href="css/jqzoom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+        $(document).ready(function(){
+            $(".jqzoom").jqueryzoom({
+                xzoom:320,  // 放大图的宽
+                yzoom:240,  // 放大图的高
+                offset:20,   // 放大图距离原图的位置
+                position:'right'  // 放大图在原图的右边(默认为right)
+            });
+        });
+</script>
+
+</head>
+
+<body>
+<div style="font-size:12px">
+    佳能数码相机欣赏(请把鼠标放到图片上)
+    <div class="jqzoom">
+        <img src="images/small.jpg" alt="相机展示" border="0" jqimg="images/big.jpg" />    </div>
+</div>
+
+</body>
+</html>
