@@ -1,0 +1,37 @@
+<%@LANGUAGE="VBSCRIPT" CODEPAGE="936"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax股票查询</title>
+
+</head>
+
+<body>
+
+<script src="jquery.min.js"></script>
+<script> 
+function stock(){				//单击“查询”按钮时执行
+code1=$("#code").val();		//获取用户输入的股票代码
+if(parseInt(code1).toString().length==6 && code1.length==6){ 	//判断股票代码是否合法
+  $.ajax({   					//发送异步请求
+     type:"GET",   
+     url:"http://hq.sinajs.cn/list=sh" + $("#code").val(),   		//股票代码是用户输入的
+     beforeSend:function(){$("#price").html("正在查询")}, 
+     success:function(data){ 
+		//先截取字符串两个"之间的字符串(\"是"的转义字符)，再通过","切分成数组
+			str=data.substring(data.indexOf("\"")+1,data.length-1).split(",");
+		   	$("#stock").html(str[0]);		//载入股票名称
+		  	$("#price").html(str[3]);  	//载入当前价
+            } 
+	  }); }
+	  else 	alert("输入有误");
+  setTimeout(stock,8000);   	//每隔8秒钟重新查询一次，刷新两个DOM元素的内容
+ }
+</script>  
+股票代码：<input type="text" id="code" size="10" />
+<input type="button" id="Search" onclick="stock()" value="查询" /><br />
+股票名称：<span id="stock"></span> 当前价：<span id="price"></span>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" >  
+<head>  
+    <title>Ajax无刷新登录</title>  
+
+</head>  
+<body>  
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){   
+    $("#btnLogin").click(function(){  //单击登录按钮后 
+         if($("#User").val()=="")    //判断是否输入了用户名
+    {   
+        alert("用户名不能为空");   
+        $("#User").focus();   
+        return false;   
+    } 
+	if($("#Pwd").val()=="")   
+    {   
+        alert("密码不能为空") ;  
+        $("#Pwd").focus();   
+        return false;   
+    }    
+	 $.ajax({   
+            type:"POST",   
+            url:"10-11.php",   
+            data:{userName:$("#User").val(),userPwd:$("#Pwd").val()},   
+            beforeSend:function(){$("#msg").html("正在登录中…");},                
+            success:function(data){   
+           $("#msg").html(data);               
+            }               
+         });   
+	
+    });   
+});   
+</script>  
+    <div>用户名：<input id="User" type="text"/><br/>
+	密 码 ：<input id="Pwd" type="text" /></div>  
+
+    <div id="msg"></div>  <!--在该容器中显示登录是否成功的信息-->
+    <div><input id="btnLogin" type="button" value="登 录" /></div>  
+
+</body>  
+</html>  

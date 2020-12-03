@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>serializeArray()方法</title>
+
+<script src="jquery.min.js"></script>
+<script>
+function Ajax(){	
+	var data= $("#form1").serializeArray();
+		//$("#target").html(data.user);
+//	$("#target").append("<table border='1' />");
+	$.each(data, function(i, item) {
+	//var tr = "<tr><td>" + item.user + "</td><td>" + item.comment + "</td></tr>";
+	$("#target").append(item.name+" : "+item.value+"<br>");
+	});
+}
+</script>
+</head>
+
+<body><form id="form1">
+<p>姓名：<input type="text" name="user"  /></p>
+<p>评论：<textarea name="comment" cols="20" rows="2"></textarea></p>
+<input type="button" value="Ajax提交" onclick="Ajax();" /></form>
+<div id="target"></div>
+
+</body>
+</html>

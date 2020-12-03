@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>$.param方法</title>
+
+<script src="jquery.min.js"></script>
+<script>
+$(function(){
+	  	var obj={a:1,b:2,c:3};    // obj是一个json对象
+		var  k  = $.param(obj);
+		alert(k);			    // 输出  a=1&b=2&c=3
+	})
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

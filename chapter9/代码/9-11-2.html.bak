@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$.get()方法发送数据</title>
+<script src="jquery.min.js"></script>
+<script>
+function Ajax(){
+ $.get("9-11-2.php", 					 //第1个参数，请求文件的URL
+	{user:escape($("#user").val()),comment:escape($("#comment").val())}, //对发送给服务器的数据进行编码
+	function(data){ 			//第3个参数，回调函数，在请求完成后执行
+		$("#target").append(data);
+	});
+}
+
+</script>
+</head>
+
+<body>
+<p>姓名：<input type="text" id="user" /></p>
+<p>评论：<textarea id="comment" cols="20" rows="2"></textarea></p>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+
+
+</body>
+</html>

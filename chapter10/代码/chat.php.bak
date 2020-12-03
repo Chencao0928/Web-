@@ -1,0 +1,66 @@
+<?php 
+session_start();  
+if ( array_key_exists( 'username', $_POST ) ) {  
+ $_SESSION['user'] = $_POST['username'];  
+}  
+$user = $_SESSION['user'];  
+?> 
+<html> 
+<head><title><?php echo( $user ) ?> - Chatting</title> 
+ <script src="jquery.min.js"></script>
+</head> 
+<body> 
+<div id="chat" style="height:200px;overflow:auto;"> 
+</div> 
+ 
+<script> 
+$(document).ready(function(){  
+
+   $("#add_btn").click(function(){  
+       $.ajax({  
+              type: "POST",  
+              url: "add.php",  
+              data:{message:escape($("#messagetext").val())},  
+              success: function(msg){ if(msg=="1") {alert('留言成功');$("#messagetext").val("");} }   
+            });   
+   });  
+ 
+});  
+ 
+</script> 
+ 
+<form id="chatmessage"> 
+<textarea name="message" id="messagetext"> 
+</textarea> 
+</form> 
+ 
+<button ID="add_btn">发表留言</button> 
+ 
+<script> 
+var lastid=0;  
+function getMessages()  
+{  
+       
+       $.ajax({  
+              type: "POST",  
+              url: "message.php",  
+              data: "lastid="+lastid,  
+              success: function(xml){          
+                 $(xml).find('messagelist > message').each(function(){  
+                  $("#chat").html($("#chat").html()+
+                          $(this).find("user").text()+
+                           ":"+$(this).find("msg").text()+"<br>");  
+                      lastid=$(this).find("id").text();  
+                      
+                   });  
+                   window.setTimeout(getMessages, 1000);  
+                  }   
+              
+         });  
+}  
+getMessages();  
+</script> 
+ 
+</body> 
+</html> 
+

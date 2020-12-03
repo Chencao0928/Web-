@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>$.getJSON方法载入JSON数据</title>
+<style>h3,p{margin:4px}</style>
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+function Ajax(){		//对9-4.html中的Ajax()函数进行修改，得到9-7.html
+	$.getJSON("9-7.json", function(data){
+		for(i=0;i<data.length;i++){			//此处data是一个数组
+		$("#target").append("<h3>"+data[i]['username']+"</h3>");
+		$("#target").append("<p>"+data[i].content+"</p>");
+		}
+	});	}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="Ajax载入" onclick="Ajax();" />
+<div id="target"></div>
+</body>
+</html>

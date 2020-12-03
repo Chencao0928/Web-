@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<title>载入XML文档</title>
+</head>
+
+<body>
+<script>
+function Ajax(){	//将9-4.html中的Ajax()函数进行修改
+	 $.get("9-9.xml", function(data) {
+	$("#target").html($(data).find("name").eq(0).text());
+	$("#target").append($(data).find("student").attr("email"));
+	  });
+}
+</script>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+</body>
+</html>

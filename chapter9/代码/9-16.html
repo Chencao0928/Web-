@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>serialize()序列化表单</title>
+<style>p,h3{margin:4px;}</style>
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+function Ajax(){
+	$.get("9-11-2.php", 
+	$("#form1").serialize(),  //第2个参数，发送给服务器的数据
+	
+	//$("#form1").serializeArray(),  //换成serializeArray()试试
+	function(data){ 	
+		$("#target").append(data);
+	});
+}
+</script>
+</head>
+
+<body><form id="form1">		<!--必须添加form标记-->
+<p>姓名：<input type="text" name="user" /></p>	<!--必须添加name属性-->
+<p>评论：<textarea name="comment" cols="20" rows="2"></textarea></p>
+<input type="button" value="Ajax提交" onclick="Ajax();" /></form>
+<div id="target"></div>
+
+</body>
+</html>

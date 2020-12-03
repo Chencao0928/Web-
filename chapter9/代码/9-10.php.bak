@@ -1,0 +1,17 @@
+<?
+header('Content-type:text/xml');
+echo "<?xml version='1.0' encoding='utf-8' ?>\n" ;
+echo '<comments>';
+include('../chapter10/conn.php');
+$result=$conn->query("Select * From lyb limit 4 "); 
+while($row=$result->fetch_assoc()){  ?>
+ <comment id="<?=$row['ID']?>">
+ <title><?=$row['title']?></title>
+ <content><?=$row['content']?></content>
+ <author><?=$row['author']?></author>
+ </comment>
+ <?  }  
+ $result->close(); ?>
+</comments>
+
+

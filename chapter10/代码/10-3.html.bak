@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>分割一条记录中的数据</title>
+ <script type="text/javascript" src="jquery.min.js"></script>
+ <script>
+$(function(){			//页面载入时执行
+    	$.get("10-3.php", function(data) {
+		str=data.split("|");
+		var tr = "<tr><td>" + str[1]+ "</td><td>" + str[2]+ "</td><td>" + str[3] + "</td><td style='color:red'>" + str[4] + "</td><td>" + str[5] + "</td></tr>";
+			$("#disp").append(tr);
+		});	
+		})	
+
+        </script>
+</head>
+<body>
+
+
+    <h3 align="center" style="margin:4px">分割显示一条记录中的数据</h3>
+    
+
+
+    <table border="1" width="95%" id="disp"><!--载入10-1.asp的容器元素-->
+  <tr bgcolor="#e0e0e0">
+    <th>标题</th> <th width="100">内容</th> <th width="60">作者</th>
+    <th>email</th> <th width="80">来自</th>
+  </tr>
+
+    </table>
+
+
+</body> 
+</html> 

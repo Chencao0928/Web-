@@ -1,0 +1,7 @@
+10.2.2节中的两个源代码：
+
+5. 制作异步加载新闻的新闻网站首页
+本节中的10-13.html 和 10-13.asp文件位于“chapter7/renwen/”文件夹下
+
+7. 制作动态载入内容的弹出框
+本节中的ajaxPop.asp，show.asp和ajaxPop2.asp文件位于“chapter7/renwen/”文件夹下

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>以Ajax方式显示数据</title>
+ <script src="jquery.min.js"></script>
+ <script>
+$(function(){			//页面载入时执行
+    $.post("10-1.php", function(data){
+            $("#disp").append(data);
+          //  alert(data);		//仅作测试，看服务器端数据是否已传来
+        });
+        } )           
+</script>
+</head>
+<body>
+
+<h2 align="center">以Ajax方式显示数据</h2>
+<table border="1" width="100%"><tbody id="disp"><tr bgcolor="#e0e0e0">
+		<th>标题</th> <th>内容</th> <th>作者</th>
+		<th>email</th> <th>来自</th>
+	</tr></tbody></table>
+
+</body> 
+</html> 

@@ -1,0 +1,7 @@
+<% response.Charset="utf-8"
+	user=request.QueryString("user")
+	comment=request.QueryString("comment")
+	response.Write "<h3>ÆÀÂÛÈË£º"&user&"</h3>"
+	response.Write "<p>ÄÚÈİ£º"&comment&"</p>"
+%>
+

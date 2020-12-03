@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$.ajax()方法的事件应用</title>
+<style>p{margin:4px;}</style>
+<script src="jquery.min.js"></script>
+<script>
+function Ajax(){		//对6-4.html中的Ajax()函数进行修改，得到6-14.html
+	$("#target").load("9-14.php?user=张三&comment=很好",{nick:"rain", age:22})
+}
+
+</script>
+</head>
+
+<body>
+<p>姓名：<input type="text" id="user" /></p>
+<p>评论：<textarea id="comment" cols="20" rows="2"></textarea></p>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+
+</body>
+</html>

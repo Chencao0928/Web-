@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax程序载入HTML文档片段</title>
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+function Ajax(){
+	$("#target").load("9-5.html .title"); //// URL和选择器之间必须有一个空格
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="Ajax载入" onclick="Ajax();" />
+<div id="target"></div>
+</body>
+</html>

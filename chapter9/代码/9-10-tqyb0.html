@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<title>载入天气预报的RSS文档</title>
+</head>
+
+<body>
+<script>
+function Ajax(){	//将9-4.html中的Ajax()函数进行修改
+	 $.get("http://weather.raychou.com/?/detail/57777/rss", 
+		function(data) {
+			$("#date").append($(data).find("item").eq(0).find("title").text());
+			$("#weather").append($(data).find("item").eq(0).find("description").text());
+			$("#city").html($(data).find("channel").children("title").text());
+	  });	}
+</script>
+<input type="button" value="查询天气" onclick="Ajax();" />
+<h3 id="city"></h3><p id="date">日期：</p><p id="weather">天气：</p>
+
+</body>
+</html>

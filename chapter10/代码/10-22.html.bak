@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Ajax分页显示记录</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <script src="jquery.min.js"></script>
+ <script>
+ $(function(){
+	getweblist(1);		//显示第一页
+	rightinfo();		//显示修改每页条数链接
+});
+	function getweblist(str)	{	//发送页码并显示某一页的函数
+
+   $.post("10-22.php",{act:"list",pageNo:str},
+	function(data)
+	{ 	 
+	 //alert(data);
+		$("#list").html(data);		
+	}
+);}
+function rightinfo() {		//设置#right元素中显示修改分页条数链接
+	$('#right').html('<a href="javascript:edit()">修改每页显示条数</a>');
+}
+function edit() {		//供用户输入每页记录数的函数
+	var str='<form style="margin:0">每页显示 <input type="text" id="pagesize" size="3"> 条 <input type="button" id="savebtn" value="保存" onclick="save()"> <input type="button" id="cancelbtn" value="取消" onclick="rightinfo()"></form>'	
+	
+	$('#right').html(str);	//将str变量的值写入该对象中。
+}
+function save(n) {		//发送每页显示记录数的函数
+	n=$("#pagesize").val();	//获取文本框中的值
+	if (n==''||/[0-9]+/.test(n)==false) {		//判断用户输入的是否是数字
+		alert("请正确填写每页显示条数！ ");
+		return;
+	}
+
+	 $.post("10-22.php",{act:"save",pagesize:n});
+	 getweblist(1);		//重新获取修改后第1页的数据
+	setTimeout("rightinfo()",3000);		//3秒后将#right元素的原始字符串写入。
+	
+}
+</script>
+
+</head>
+
+<body>
+<h3 align="center">Ajax分页显示记录</h3><p align="center" id="right"></p>
+
+<table align="center" border="1">
+  <tr bgcolor="#e0e0e0">
+    <th>标题</th>
+    <th width="100">内容</th>
+    <th width="60">作者</th>
+    <th>email</th>
+    <th width="80">来自</th>
+	<th>编辑</th><th>删除</th>
+  </tr><tbody id="list">
+  
+  </tbody>
+</table>
+
+</body>
+</html>

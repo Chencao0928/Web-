@@ -1,0 +1,21 @@
+<html><head>
+<title>第一个JavaScript程序</title>
+<script>
+	var aNumbers = new Array();
+var sMessage = "你输入了:\n";
+var iTotal = 0, i = 0, userInput;
+do{
+	userInput = prompt("输入一个数字，或者'0'退出","0");
+	aNumbers[i] = userInput;
+	i++;
+	iTotal += Number(userInput);
+	sMessage += userInput + "\n";
+}while(userInput != 0);		//当输入为0（默认值）时退出循环体
+sMessage += "总数:" + iTotal;
+alert(sMessage);
+
+</script>
+</head>
+<body>
+<p onClick="msg()">Click Here</p>  <!--通过事件调用函数 -->
+</body></html>

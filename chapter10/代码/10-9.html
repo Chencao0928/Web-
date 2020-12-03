@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax检测用户名</title>
+<style>
+<!--
+td{font-size:12px;}
+.div1{margin-left:4px;}
+//-->
+</style>
+<script src="jquery.min.js"></script>
+
+</head>
+
+<body>
+<script>
+$(function(){ //在页面载入时加载
+$("#user").blur(function(){		//在文本框失去焦点时检测
+    user=$("#user").val();	
+	if (user != ""){
+    $.get('10-9.php', {username: user}, function (data){   
+	   $("#prompt").html(data);});}   
+	   else {$("#prompt").html("请输入用户名");};
+	});
+})
+</script>
+<form><table border=1 cellpadding=4 cellspacing=0 width="364">
+<tr><td width="44">用户名</td>
+	<td width="169"><input type="text" id="user"></td>
+	<td width="119"><div id="prompt">请输入用户名</div></td></tr>
+<tr><td>密码</td>
+	<td><input type="text" id="pwd"></td><td></td></tr>
+<tr><td></td>
+	<td><input type="button" value="注册" id="reg"></td>
+	<td id="show"></td></tr>
+</table></form>
+
+
+</body>
+</html>

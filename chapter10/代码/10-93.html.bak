@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax检测用户名</title>
+<style>
+<!--
+td{font-size:12px;}
+.div1{margin-left:4px;}
+//-->
+</style>
+
+
+</head>
+
+<body>
+
+ <script language=javascript>
+
+  function check()  {
+     var xmlhttp;
+	if (window.ActiveXObject){			//针对IE6
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} 
+	else if (window.XMLHttpRequest){		//针对除IE6 以外的浏览器
+		xmlhttp = new XMLHttpRequest();//实例化一个XMLHttpRequest
+	}
+user=document.getElementById("user").value;
+  if (user=="")
+  {
+    msg="用户名不能为空";
+	var ch=document.getElementById("prompt");
+	ch.innerHTML="<font color='#aaaaaa'>"+msg+"</font>";	   
+	return false;
+  }
+  //发送请求
+  // xmlhttp.open("get","10-9.asp?username="+user+ "&n=" + Math.random());
+  xmlhttp.open("post","10-9.asp");
+   xmlhttp.onreadystatechange=function()   {
+     if(xmlhttp.readyState==4)	 {
+	   if(xmlhttp.status==200)	   {
+	     if (xmlhttp.responseText==1)	     { 
+		   msg="<font color=#0000ff>可以注册</font>";
+	     }
+		 else		 {
+		  msg="<font color=#ff0000>此用户名已经注册</font>";
+		 }		   }
+	   else	   {
+	     msg="网络连接失败";   }
+	   var ch=document.getElementById("prompt");
+	   ch.innerHTML=msg; }
+   }
+  // xmlhttp.send(null);  
+   xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+  //发送数据
+  xmlhttp.send("username="+user+ "&n=" + Math.random());
+ }  
+  //-->
+  </script>
+<form><table border=1 cellpadding=4 cellspacing=0 width="296">
+<tr><td width="42">用户名</td>
+	<td width="115"><input type="text" id="user" size="15" onblur="check()"></td><!---->
+	<td width="107"><div id="prompt">请输入用户名</div></td></tr>
+<tr><td>密码</td>
+	<td><input type="text" id="pwd" size="15"></td><td></td></tr>
+<tr><td></td>
+	<td><input type="button" value="注册" id="reg"></td>
+	<td id="show"></td></tr>
+</table></form>
+
+
+</body>
+</html>

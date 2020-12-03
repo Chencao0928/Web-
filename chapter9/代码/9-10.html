@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jquery.min.js"></script>
+
+<title>载入ASP生成的XML文档</title>
+</head>
+
+<body>
+<script>
+function Ajax(){	//将9-4.html中的Ajax()函数进行修改
+	 $.get("9-10.php", function(data) {
+	$("#target").html("<table />");
+	$("table").attr({"border": 1,"cellpadding":4});
+	$(data).find("comment").each(function(){
+	var tr="<tr><td>"+$(this).find("title").text()+"</td>"
+	tr+="<td>"+ $(this).find("author").text()+"</td>"
+	tr+="<td>"+ $(this).find("content").text()+"</td></tr>"
+	$("table").append(tr);
+	}
+	)
+	  });
+}
+</script>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+</body>
+</html>

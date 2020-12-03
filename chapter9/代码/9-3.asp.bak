@@ -1,0 +1,5 @@
+<% 
+
+response.Expires=-1	'·ÀÖ¹´Óä¯ÀÀÆ÷»º´æÖÐÈ¡Ò³Ãæ£¬Ò²¿ÉÉ¾³ý 
+response.Write "<b>Hello Ajax!</b>" & time()
+ %>

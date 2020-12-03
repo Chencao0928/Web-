@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<title>$.getScript方法</title>
+</head>
+
+<body>
+<script>
+function Ajax(){	//将9-4.html中的Ajax()函数进行修改
+	 $.getScript('9-8.js',function(data){
+	 var html ="<table border='1' cellpadding='2'>";
+  $.each(comments, function(Index, comment) {
+      html += '<tr><td>' + comment.username + ':</td><td>' + comment['content'] + '</td></tr>';
+  })		//comment['username']也可写成comment.username
+html +="</table>"
+//alert("Hello");
+$("#target").html(html);
+	 }	 );
+}
+</script>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+</body>
+</html>

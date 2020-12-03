@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Asp+Ajax登录实例</title>
+
+<style type="text/css">
+<!--
+#box{
+	border:1px solid #99BBDD;
+	margin-bottom:10px;
+	width:200px;
+	
+}
+#box_title{
+    position: relative;
+    height: 28px;
+	background-color: #66CCCC;
+}
+#box_title h3 {
+    height: 26px;
+    line-height: 26px;
+    margin: 1px 1px 0;
+    padding: 0 10px;
+    font-size: 100%;
+    color:white;
+}
+#box_title h3 a:link{
+	color:#275c91;
+
+}
+#box_title h3 a:visited{
+	color:#275c91; 
+ 
+}
+#box_title h3 a:hover{
+	color:#275c91;
+}
+#maker{
+	margin:10px 10px 0px 10px;
+	height:70px;
+	padding:10px;
+}
+#sitename{
+	height:30px;
+}
+#siteurl{
+	height:30px;
+}
+#sitesub{
+	height:30px;
+}
+-->
+</style>
+
+</head>
+
+<body>
+<script src="jquery.min.js"></script>
+<script>
+$(function(){	loadlogin(); })
+function loadlogin(){		//加载登录界面的函数
+		 $.post('10-12.php', function (data){   
+	   $("#maker").html(data);  
+} );
+}
+function login(){			//发送登录信息的函数
+		var name = $("#name").val();
+		var pass = $("#pass").val();
+		if(name =="")	alert("用户名不可以为空！");
+		$.post('10-12.php', {name: name,pass:pass}, function (data){   
+	   $("#maker").html(data);   
+});
+}
+function outlogin(){			//登出函数
+		//$("maker").load("10-12.asp?action=outlogin");
+		
+		 $.post('10-12.php', {action: 'outlogin'}, function (data){   
+	   $("#maker").html(data);   
+});
+}
+</script>
+ <div id="box">
+          <div id="box_title"><h3>用户登录</h3></div>
+          <div id="box_1">
+	             <div id="maker"></div>
+          </div>
+      </div>
+</body>
+</html>

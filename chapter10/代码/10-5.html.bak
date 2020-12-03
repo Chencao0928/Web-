@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="jquery.min.js"></script>
+<script>
+$(function(){ 		//页面载入时执行
+$("#Submit").click(function(){	//当下拉框中值发生变化时执行
+		var key = escape($('#key').val()); //得到下拉菜单的选中项的value值
+	var sel = $('#sel').val();
+	if (key!=0) 				//如果下拉框中内容不为空
+		{	//发送记录id和sid 两个参数到getweb.asp，math.random()避免缓存
+		$.get("10-5.php",{key:key,sel:sel,sid:Math.random()},
+			function(data){
+				$("#disp").html(data); 	//载入返回的查询结果到#disp中
+		});		}
+		else	$("#disp").html("搜索内容不能为空！");	
+});		})
+</script>
+
+<title>Ajax方式查找数据</title>
+</head>
+
+<body>
+
+<h2 align="center" style="margin:4px">以Ajax方式查询数据</h2>
+<div style="border:1px solid gray; background:#eee;padding:4px;"> 
+查询留言：请输入关键字 <input id="key" type="text">
+  <select id="sel">
+    <option value="title">文章标题</option>
+    <option value="content">文章内容</option>
+  </select>
+  <input type="button" id="Submit" value="查询">
+</div>
+<div id="disp" ></div>
+
+
+</body>
+</html>

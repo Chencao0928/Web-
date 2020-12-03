@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>$.AjaxSetup()全局设定</title>
+<style>p{margin:4px;}</style>
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+$.ajaxSetup({		//统一设置$.ajax()方法中的相同部分
+type: "GET",
+ //data: "user="+escape($("#user").val())+"&comment="+escape($("#comment").val()),
+beforeSend:function(){$("#target").html("<img src='loading.gif' /><br>正在载入…");}, 
+error:function(){$("#target").html("<p>载入失败</p>");},
+success: function(data){ 	//第3个参数，回调函数，在请求完成后执行
+		
+		$("#target").html(data);
+	}});
+
+function Ajax(){
+$.ajax({
+data: {user:escape($("#user").val()),comment:escape($("#comment").val())},
+ url: "9-15.php"
+ })
+}
+</script>
+</head>
+
+<body>
+<p>姓名：<input type="text" id="user" /></p>
+<p>评论：<textarea id="comment" cols="20" rows="2"></textarea></p>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+
+</body>
+</html>

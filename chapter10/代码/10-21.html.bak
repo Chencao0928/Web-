@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Ajax分页显示记录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <script src="jquery.min.js"></script>
+ <script>
+ $(function(){
+getweblist(1);	//页面加载时显示第1页
+});
+function getweblist(str) {		//单击分页链接执行的函数
+   $.get("10-21.php",{act:"list",pageNo:str,n:Math.random()},
+	function(data)	{ 	 
+		$("#list").html(data);		
+	});
+}
+
+</script>
+
+</head>
+
+<body>
+<h1 align="center">Ajax分页显示记录</h1><p align="center" id="right"></p>
+<!---->
+<table align="center" border="1">
+  <tr bgcolor="#e0e0e0">
+    <th width="100">标题</th>
+    <th width="100">内容</th>
+    <th width="60">作者</th>
+    <th>email</th>
+    <th width="30">来自</th>
+	<th>编辑</th><th>删除</th>
+  </tr><tbody id="list">
+  
+  </tbody>
+</table>
+
+</body>
+</html>

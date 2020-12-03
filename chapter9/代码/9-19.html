@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jsonp示例</title>
+<script src="jquery.min.js"></script>
+<script>
+ function do_jsonp() {
+    $.getJSON("9-19.php?callback=?");
+}
+function demo(data){		 //该函数名必须与JSONP代码中的函数名一致
+    $('#result').val('My name is: ' + data.name);
+}
+</script>
+
+</head>
+
+<body>
+<a href="javascript:do_jsonp();">Click me</a><br />
+<textarea id="result" cols="40" rows="3"></textarea>
+</body>
+</html>
+
+

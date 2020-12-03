@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax技术加载HTML文档</title>
+</head>
+<body>
+<script>
+function Ajax(){				//通过这个函数来异步获取信息
+	var xmlHttpReq;
+	if (window.ActiveXObject){			//针对IE6
+		xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+	} 
+	else if (window.XMLHttpRequest){		//针对除IE6 以外的浏览器
+		xmlHttpReq = new XMLHttpRequest();//实例化一个XMLHttpRequest
+	}
+	if(xmlHttpReq!= null){		//如果对象实例化成功 
+		xmlHttpReq.open("get","9-2.html");	//调用open()方法并采用异步方式
+		
+		//xmlHttpReq.open("get","9-2.html?t="+Math.random());
+		
+		xmlHttpReq.send(null);	//因为使用get方式提交，所以可以使用null参调用
+		xmlHttpReq.onreadystatechange=RequestCallBack; //设置回调函数
+	}
+	function RequestCallBack(){		//一旦readyState值改变，将会调用这个函数
+		//如果服务器处理完毕并且没有出错
+		if(xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200){
+		document.getElementById("target").innerHTML = xmlHttpReq.responseText;
+		}
+	}
+}
+</script>
+<input type="button" value="Ajax载入" onclick="Ajax();" /> 
+<div id="target"></div>
+</body></html>
+
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax技术加载HTML文档</title>
+<script type="text/javascript">
+function Ajax(){				//通过这个函数来异步获取信息
+	var xmlHttpReq;
+	if (window.ActiveXObject){			//针对IE6
+		xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+	} 
+	else if (window.XMLHttpRequest){		//针对除IE6 以外的浏览器
+		xmlHttpReq = new XMLHttpRequest();//实例化一个XMLHttpRequest
+		
+	}
+	//xmlHttpReq.setRequestHeader("Cache-Control","no-cache"); 
+	if(xmlHttpReq!= null){		//如果对象实例化成功 
+		//var url = "9-2.html?r="&r=" + Math.random();
+		var str="firstname=IAAA"
+			xmlHttpReq.onreadystatechange=RequestCallBack; //设置回调函数		
+		xmlHttpReq.open("get","9-2.html",true);	//调用open()方法并采用异步方式	
+	xmlHttpReq.setRequestHeader("content-length", str.length); 
+		xmlHttpReq.setRequestHeader("content-type","application/x-www-form-urlencoded"); 
+		xmlHttpReq.send(null);	//因为使用get方式提交，所以可以使用null参调用
+	}
+	function RequestCallBack(){		//一旦readyState值改变，将会调用这个函数
+		if(xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200){
+		document.getElementById("target").innerHTML = xmlHttpReq.responseText;
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<input type="button" value="Ajax载入" onclick="Ajax();" />
+<div id="target"></div>
+</body>
+</html>
+-->

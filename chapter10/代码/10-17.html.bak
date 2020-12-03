@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax无刷新评论系统</title>
+<script src="jquery.min.js"></script>
+<script>
+$(function(){  
+	$.ajax({				//页面载入时载入评论信息
+		type:"GET",
+		url:"10-17.php?act=load&id="+Math.random(),
+		error:function(){$("#comments").html("获取评论信息失败");},
+		success:function(data){
+			$("#comments").html(data);		}
+	});
+    $("#Submit").click(function(){   
+        title=$("#title").val(); author=$("#author").val(); //获取表单中的数据
+		email=$("#email").val(); content=$("#content").val(); 
+		            
+		 $.post("10-17.php",{	//发送表单中的数据给addnew.asp
+		   title:escape(title),	 author:escape(author),
+		   email:escape(email), content:escape(content),
+		   act:"add"
+	   },
+	  function(data){  alert(data); 
+ 		if(data==1)	  {
+		    $("#title").val(''); $("#author").val(''); //清空添加记录框中的内容
+		   $("#email").val(''); $("#content").val(''); 
+		 
+	var newcom="<div style='border:1px solid #CCC;margin:5px;'>网友："+author+" 发表于"+Date()+"<br/>标题："+title+"<br/>"+content+" Email："+email+"</div>";
+   $("#comments").prepend(newcom);    //插入到元素内部的最前面
+		   		  
+      }  } ); 
+} ); 
+    } );  
+</script>  
+
+</head>
+
+<body>
+<h3 style="margin:4px; text-align:center">网友评论</h3>
+<div id="comments"><!--用来载入评论的内容，未加载完时显示加载中图标-->
+  <div style="border:1px solid #CCC;margin:5px 5px;"><img src="onLoad.gif" alt="加载中..." /> 评论加载中......</div>
+
+</div>
+
+<form style="margin:8px;">
+  <table width="350" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
+  <caption>请在下面发表你的高见吧</caption>
+  <tbody bgcolor="#ffffff">
+      <tr>
+      <td>昵称：</td>
+      <td><input type="text" id="author"></td>
+    </tr>
+	  <tr>
+      <td>邮箱：</td>
+      <td><input type="text" id="email"></td>
+    </tr>
+	<tr>
+      <td width="100">标题：</td>
+      <td width="325"><input type="text" id="title"></td>
+    </tr>
+  
+    <tr>
+      <td>内容：</td>
+      <td><textarea id="content" cols="30" rows="2"></textarea></td>
+    </tr>
+	 <tr>
+      <td></td>
+      <td><input type="button" id="Submit" value="发表评论"></td>
+    </tr>
+	</tbody>
+  </table>
+</form>
+</body>
+</html>

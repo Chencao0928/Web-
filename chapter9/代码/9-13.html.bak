@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$.post()方法发送数据</title>
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+function Ajax(){
+
+	$.post("9-13.php",  //第一个参数，请求文件的URL
+	{user:escape($("#user").val()),comment:escape($("#comment").val())},  //第2个参数，发送给服务器的数据
+	function(data){ 	//第3个参数，回调函数，在请求完成后执行
+		data=eval("("+data+")");
+		var html = "<h3>评论人："+data.user+"</h3><p>内容："+data.comment+"</p>";
+		$("#target").append(html);
+	});
+	
+//	function Ajax(){
+//	$("#target").load("9-11.asp",  //第一个参数，请求文件的URL
+//	{user:escape($("#user").val()),comment:escape($("#comment").val())})
+//}
+}
+</script>
+</head>
+
+<body>
+<p>姓名：<input type="text" id="user" /></p>
+<p>评论：<textarea id="comment" cols="20" rows="2"></textarea></p>
+<input type="button" value="Ajax提交" onclick="Ajax();" />
+<div id="target"></div>
+
+</body>
+</html>

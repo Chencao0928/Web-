@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>$.get()方法发送数据</title>
+<script language="javascript" src="jquery.min.js"></script>
+
+</head>
+
+<body>
+<script>
+$(document).ready(function() {
+  $('#news a').click(function() {
+		$.get("9-12.php", {'title': escape($(this).text())},function(data){
+			$("#target").append(data);
+		});
+   return false;	//使单击超链接不发生跳转
+  });
+});
+</script>
+<ul id="news">
+  <li><a href="9-12.php?id=1">关于加强教学督导的通知</a></li>
+  <li><a href="9-12.php?id=2">关于中层干部会议的通知</a> </li>
+  <li><a href="9-12.php?id=3">关于收集月工作要点的通知</a> </li>
+ </ul>
+<div id="target"></div>
+
+</body>
+</html>
