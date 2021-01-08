@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery侧边栏下拉收缩菜单代码 </title>
+
+<script src="./js/jquery.min.js"></script>
+
+<!--阿里图标库-->
+<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1632750_204xwxiwzht.css?1583918713" />
+
+<link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+<div class="body_con">
+    <div class="body_top">头部</div>
+    <div class="body_left">
+        <ul class="body_left_list">
+            <li>
+                <label>
+                    <span>宣 传</span>
+                    <i class="iconfont iconxiajiantou"></i>
+                    <a href="javascript:;"></a>
+                </label>
+                <ul>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目1栏目1</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目2</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目3</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <label>
+                    <span>服 务</span>
+                    <i class="iconfont iconxiajiantou"></i>
+                    <a href="javascript:;"></a>
+                </label>
+                <ul>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目1</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目2</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目3</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <label>
+                    <span>营 销</span>
+                    <i class="iconfont iconxiajiantou"></i>
+                    <a href="javascript:;"></a>
+                </label>
+                <ul>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目1</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目2</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label>
+                            <i class="iconfont iconYYGK"></i>
+                            <span>二级栏目3</span>
+                            <i class="iconfont iconyoujiantou"></i>
+                            <a href="javascript:;"></a>
+                        </label>
+                        <ul>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <span>三级栏目</span>
+                                    <i class="iconfont iconyoujiantou"></i>
+                                    <a href="javascript:;"></a>
+                                </label>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <span>四级栏目</span>
+                                            <i class="iconfont iconyoujiantou"></i>
+                                            <a href="javascript:;"></a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="body_right">
+		+
+        内容页面
+    </div>
+</div>
+
+<script src="./js/script.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>法律相关条文</p>
+
+</div>
+</body>
+</html>
